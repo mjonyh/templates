@@ -37,32 +37,21 @@ To compile these templates, you need a standard LaTeX distribution and a few com
 - **makeglossaries**: For compiling acronyms and glossary lists (primarily used in the M.S. template).
 - **GNU Make** (optional): For using the automation script.
 
----
+## 🚀 Compilation
+Each template directory contains its own `Makefile` to automate the LaTeX compilation pipeline. To compile a template:
 
-## 🚀 Quick Start & Compilation
+1. Open your terminal.
+2. Navigate into the template's directory (e.g., `cd bsc-project-template` or `cd ms-thesis-template`).
+3. Run the following commands:
 
-You can compile both templates easily using the root `Makefile`. Open your terminal in the root of this repository and use one of the following commands:
-
-### Compile All Templates
-```bash
-make all
-```
-
-### Compile B.Sc. Project Template Only
-```bash
-make bsc
-```
-
-### Compile M.S. Thesis Template Only
-```bash
-make ms
-```
-
-### Clean Up Build Artifacts
-To delete all auxiliary compilation files (e.g. `.aux`, `.log`, `.toc`, `.pdf`):
-```bash
-make clean
-```
+   * **Build PDF**:
+     ```bash
+     make all
+     ```
+   * **Clean temporary files**:
+     ```bash
+     make clean
+     ```
 
 ---
 
