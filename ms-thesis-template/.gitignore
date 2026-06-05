@@ -1,0 +1,25 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.pdf
+*.glo
+*.ist
+*.glg
+*.gls
+*.alg
+*.acr
+*.acn
+*.loa
+
+# Backup and temporary files
+*~
+*.bak
+.DS_Store

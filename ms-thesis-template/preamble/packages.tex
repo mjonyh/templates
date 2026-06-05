@@ -1,0 +1,228 @@
+%% Preamble Configuration: preamble/packages.tex
+
+% --- Core Geometry & Spacing ---
+% Left margin is 1.5 inches for binding clearance; others are 1.0 inch
+\usepackage[top=1.0in, bottom=1.0in, left=1.5in, right=1.0in, headheight=15pt]{geometry}
+\usepackage{setspace}
+\onehalfspacing % Default to 1.5 spacing for front matter
+
+% --- Fonts & Encoding ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern} % Computer Modern font family (default)
+
+% To switch to Times New Roman, uncomment the following line:
+% \usepackage{newtxtext,newtxmath}
+
+% --- Navigation & Headers/Footers ---
+\usepackage{fancyhdr}
+\usepackage{emptypage} % Ensure empty pages have no headers/footers
+\usepackage{tocbibind}  % Automatically adds bibliography, lists, index to TOC
+
+% Configure fancy header style
+\pagestyle{fancy}
+\fancyhf{} % Clear default headers and footers
+
+\makeatletter
+\if@twoside
+  \fancyhead[LE,RO]{\slshape\small\nouppercase{\rightmark}} % Section title
+  \fancyhead[LO,RE]{\slshape\small\nouppercase{\leftmark}}  % Chapter title
+\else
+  \fancyhead[L]{\slshape\small\nouppercase{\leftmark}}      % Only print Chapter title on left
+\fi
+\makeatother
+\fancyfoot[R]{\thepage}               % Right footer: Page number
+\renewcommand{\headrulewidth}{0.4pt}  % Header underline width
+\renewcommand{\footrulewidth}{0.0pt}
+
+% Redefine plain page style (used on Chapter openings and front matter)
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}           % Center page number on plain pages
+    \renewcommand{\headrulewidth}{0.0pt}
+}
+
+% --- Chapter & Section Formatting ---
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\large\bfseries\centering}
+  {\chaptertitlename\ \thechapter}
+  {10pt}
+  {\Large}
+
+% --- Graphics & Visuals ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{figures/}} % Figures path
+
+% --- Math & Sciences ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{
+  scientific-notation = false,
+  round-mode = places,
+  round-precision = 3,
+  exponent-product = \times
+}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+
+% --- Bibliography (Numeric Style with natbib/bibtex) ---
+\usepackage[numbers,sort&compress]{natbib}
+
+
+% --- Acronyms & Glossaries ---
+\usepackage[acronym,toc,nopostdot,nonumberlist]{glossaries}
+
+% --- Algorithms ---
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% --- Code Listings ---
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codebackground}{rgb}{0.97, 0.98, 0.99}
+\definecolor{codekeyword}{rgb}{0.1, 0.4, 0.8}
+\definecolor{codecomment}{rgb}{0.45, 0.5, 0.55}
+\definecolor{codestring}{rgb}{0.0, 0.55, 0.35}
+\definecolor{codenumber}{rgb}{0.6, 0.6, 0.6}
+\definecolor{codeaccent}{rgb}{0.2, 0.5, 0.8}
+
+% Listing styles for Python
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    backgroundcolor=\color{codebackground},   
+    commentstyle=\color{codecomment}\itshape,
+    keywordstyle=\color{codekeyword}\bfseries,
+    numberstyle=\tiny\color{codenumber},
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\footnotesize\setstretch{1.0}, % Footnotesize single-spaced code font
+    columns=flexible,                % Better character spacing
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=10pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,
+    frame=leftline,
+    framerule=2.5pt,
+    rulecolor=\color{codeaccent},
+    xleftmargin=15pt,
+    framexleftmargin=5pt
+}
+
+% Listing styles for Fortran
+\lstdefinestyle{fortranstyle}{
+    language=[95]Fortran,
+    backgroundcolor=\color{codebackground},   
+    commentstyle=\color{codecomment}\itshape,
+    keywordstyle=\color{codekeyword}\bfseries,
+    numberstyle=\tiny\color{codenumber},
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\footnotesize\setstretch{1.0}, % Footnotesize single-spaced code font
+    columns=flexible,                % Better character spacing
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=10pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,
+    frame=leftline,
+    framerule=2.5pt,
+    rulecolor=\color{codeaccent},
+    xleftmargin=15pt,
+    framexleftmargin=5pt
+}
+
+% Listing styles for MATLAB
+\lstdefinestyle{matlabstyle}{
+    language=Matlab,
+    backgroundcolor=\color{codebackground},   
+    commentstyle=\color{codecomment}\itshape,
+    keywordstyle=\color{codekeyword}\bfseries,
+    numberstyle=\tiny\color{codenumber},
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\footnotesize\setstretch{1.0}, % Footnotesize single-spaced code font
+    columns=flexible,                % Better character spacing
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=10pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,
+    frame=leftline,
+    framerule=2.5pt,
+    rulecolor=\color{codeaccent},
+    xleftmargin=15pt,
+    framexleftmargin=5pt
+}
+
+% --- TikZ & Plotting ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, shapes.geometric, decorations.pathmorphing}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Physics-specific TikZ-Feynman (loaded if available, commented out by default to ensure maximum compiler compatibility)
+% \usepackage[compat=1.1.0]{tikz-feynman}
+
+% --- Hyperlinks & PDF Properties ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=green!50!black,
+    urlcolor=cyan!70!black,
+}
+
+% --- Custom Command Placeholders ---
+\makeatletter
+\newcommand{\thesistitle}[1]{\gdef\@thesistitle{#1}}
+\newcommand{\authorname}[1]{\gdef\@authorname{#1}}
+\newcommand{\rollnumber}[1]{\gdef\@rollnumber{#1}}
+\newcommand{\regnumber}[1]{\gdef\@regnumber{#1}}
+\newcommand{\session}[1]{\gdef\@session{#1}}
+\newcommand{\supervisorname}[1]{\gdef\@supervisorname{#1}}
+\newcommand{\supervisordesignating}[1]{\gdef\@supervisordesignating{#1}}
+\newcommand{\cosupervisorname}[1]{\gdef\@cosupervisorname{#1}}
+\newcommand{\cosupervisordesignating}[1]{\gdef\@cosupervisordesignating{#1}}
+\newcommand{\externalexaminername}[1]{\gdef\@externalexaminername{#1}}
+\newcommand{\externalexaminerdesignating}[1]{\gdef\@externalexaminerdesignating{#1}}
+\newcommand{\submissiondate}[1]{\gdef\@submissiondate{#1}}
+
+% Standard printing macros
+\newcommand{\printtitle}{\@thesistitle}
+\newcommand{\printauthor}{\@authorname}
+\newcommand{\printroll}{\@rollnumber}
+\newcommand{\printreg}{\@regnumber}
+\newcommand{\printsession}{\@session}
+\newcommand{\printsupervisor}{\@supervisorname}
+\newcommand{\printsupervisordesig}{\@supervisordesignating}
+\newcommand{\printcosupervisor}{\@cosupervisorname}
+\newcommand{\printcosupervisordesig}{\@cosupervisordesignating}
+\newcommand{\printexternal}{\@externalexaminername}
+\newcommand{\printexternaldesig}{\@externalexaminerdesignating}
+\newcommand{\printdate}{\@submissiondate}
+\makeatother

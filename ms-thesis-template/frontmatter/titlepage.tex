@@ -1,0 +1,57 @@
+%% Cover / Title Page: frontmatter/titlepage.tex
+
+\begin{titlepage}
+    \begin{singlespace}
+    \begin{center}
+        \vspace*{0.1in}
+        
+        % SUST Official Logo (centered, ~3.0cm height)
+        \includegraphics[height=3.0cm]{sust_logo.png}
+        
+        \vspace{0.25in}
+        
+        {\large\bfseries SHAHJALAL UNIVERSITY OF SCIENCE AND TECHNOLOGY} \\
+        {\large\bfseries Department of Physics} \\
+        {\normalsize\itshape Sylhet-3114, Bangladesh}
+        
+        \vspace{0.2in}
+        \hrule height 1.5pt
+        \vspace{0.2in}
+        
+        {\large\bfseries A THESIS ON}
+        
+        \vspace{0.15in}
+        
+        % Thesis Title (Large bold)
+        {\Large\bfseries \printtitle}
+        
+        \vspace{0.25in}
+        
+        {\large Submitted for the partial fulfillment of the requirements for the degree of\\
+        \bfseries Master of Science in Physics}
+        
+        \vspace{0.35in}
+        
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{p{0.48\textwidth} p{0.48\textwidth}}
+                {\bfseries Submitted By:} & {\bfseries Supervised By:} \\
+                \printauthor & \printsupervisor \\
+                Roll No: \printroll & \printsupervisordesig \\
+                Reg. No: \printreg & \ifx\printcosupervisor\empty\else\rule{0pt}{15pt}{\bfseries Co-Supervised By:}\fi \\
+                Session: \printsession & \ifx\printcosupervisor\empty\else\printcosupervisor\fi \\
+                Department of Physics, SUST & \ifx\printcosupervisor\empty\else\printcosupervisordesig\fi \\
+            \end{tabular}
+        \end{table}
+        
+        \vfill
+        
+        \hrule height 1.0pt
+        \vspace{0.15in}
+        
+        {\large Submission Date: \printdate}
+        
+        \vspace*{0.1in}
+    \end{center}
+    \end{singlespace}
+\end{titlepage}

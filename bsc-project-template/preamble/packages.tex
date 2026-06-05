@@ -1,0 +1,131 @@
+%% Preamble Configuration: preamble/packages.tex
+
+% --- Core Geometry & Spacing ---
+\usepackage[top=1.0in, bottom=1.0in, left=1.5in, right=1.0in]{geometry}
+\usepackage{setspace}
+\onehalfspacing % Set line spacing to 1.5
+
+% --- Fonts & Encoding ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern} % Computer Modern font family
+
+% --- Navigation & Headers/Footers ---
+\usepackage{fancyhdr}
+\usepackage{emptypage} % Ensure empty pages have no headers/footers
+
+% Configure fancy header style
+\pagestyle{fancy}
+\fancyhf{} % Clear default headers and footers
+\fancyhead[L]{\slshape \leftmark} % Left header: Chapter title/section mark
+\fancyfoot[R]{\thepage} % Right footer: Page number
+\renewcommand{\headrulewidth}{0.4pt} % Header underline width
+\renewcommand{\footrulewidth}{0.0pt}
+
+% Redefine plain page style (used on Chapter openings and front matter)
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Center page number on plain pages
+    \renewcommand{\headrulewidth}{0.0pt}
+}
+
+% --- Chapter & Section Formatting ---
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\large\bfseries\centering}
+  {\chaptertitlename\ \thechapter}
+  {10pt}
+  {\Large}
+
+% --- Graphics & Visuals ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{figures/}} % Figures path
+
+% --- Math & Sciences ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{
+  scientific-notation = false,
+  round-mode = places,
+  round-precision = 3,
+  exponent-product = \times
+}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% --- Bibliography (Numeric Style with natbib/bibtex) ---
+\usepackage[numbers,sort&compress]{natbib}
+
+% --- Code Listings ---
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.96}
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen}\itshape,
+    keywordstyle=\color{magenta}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,
+    frame=single,
+    rulecolor=\color{gray!30}
+}
+
+% --- TikZ & Plotting ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, shapes.geometric, decorations.pathmorphing}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% --- Hyperlinks & PDF Properties ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=green!50!black,
+    urlcolor=cyan!70!black,
+}
+
+% --- Custom Command Placeholders ---
+\makeatletter
+\newcommand{\thesistitle}[1]{\gdef\@thesistitle{#1}}
+\newcommand{\authorname}[1]{\gdef\@authorname{#1}}
+\newcommand{\rollnumber}[1]{\gdef\@rollnumber{#1}}
+\newcommand{\session}[1]{\gdef\@session{#1}}
+\newcommand{\supervisorname}[1]{\gdef\@supervisorname{#1}}
+\newcommand{\submissiondate}[1]{\gdef\@submissiondate{#1}}
+
+% Standard printing macros
+\newcommand{\printtitle}{\@thesistitle}
+\newcommand{\printauthor}{\@authorname}
+\newcommand{\printroll}{\@rollnumber}
+\newcommand{\printsession}{\@session}
+\newcommand{\printsupervisor}{\@supervisorname}
+\newcommand{\printdate}{\@submissiondate}
+\makeatother

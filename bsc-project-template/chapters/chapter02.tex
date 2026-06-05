@@ -1,0 +1,31 @@
+%% Chapter 2: Background Theory & Literature Review (chapters/chapter02.tex)
+
+% ==============================================================================
+% Chapter Writing Guidelines:
+% - Fundamental theory: Detail equations, physical principles, and derivations.
+% - Literature review: Summarize previous published work, citing articles, books, etc.
+% - Gap analysis: Conclude by pointing out the gap or niche you are attempting to study.
+% ==============================================================================
+
+\chapter{Background Theory and Literature Review}
+\label{ch:theory}
+
+This chapter details the fundamental equations governing electromagnetic wave propagation in non-linear media and summarizes key results from previous literatures.
+
+\section{Governing Equations}
+The polarization $P(t)$ of a medium subjected to an electric field $E(t)$ can be expanded in a power series:
+\begin{equation}
+    P(t) = \varepsilon_0 \left[ \chi^{(1)} E(t) + \chi^{(2)} E^2(t) + \chi^{(3)} E^3(t) + \dots \right]
+    \label{eq:polarization}
+\end{equation}
+where $\varepsilon_0$ is the vacuum permittivity, and $\chi^{(n)}$ represents the $n$-th order optical susceptibility. For isotropic materials like glass, the second-order term $\chi^{(2)}$ vanishes due to inversion symmetry. The third-order polarization $P^{(3)}(t)$ leads to phenomena such as the optical Kerr effect and two-photon absorption.
+
+The intensity-dependent refractive index $n$ is defined by:
+\begin{equation}
+    n(I) = n_0 + n_2 I
+    \label{eq:refractive_index}
+\end{equation}
+where $n_0$ is the linear refractive index, $n_2$ is the non-linear index coefficient, and $I$ represents the laser field intensity.
+
+\section{Historical Background and Prior Studies}
+Early investigations of third-order optical effects were pioneered by Boyd \cite{boyd2020nonlinear}. The development of the Z-scan technique by Sheik-Bahae et al. \cite{sheik1990sensitive} provided a simple, sensitive method to resolve both the sign and magnitude of $n_2$. Since then, numerous studies have explored various semiconductor materials for switching applications \cite{sutherland2003handbook}. Recent theoretical extensions have attempted to map these effects using multi-scale simulations \cite{yamada2018numerical}.

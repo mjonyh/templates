@@ -1,0 +1,82 @@
+%% Shahjalal University of Science and Technology (SUST)
+%% Department of Physics
+%% M.S. Thesis LaTeX Template
+%% Main master file: main.tex
+
+\documentclass[12pt,a4paper]{report}
+
+% Include packages and custom configurations
+\input{preamble/packages}
+
+% Define Thesis Information
+\thesistitle{Ab-initio Investigation of Structural, Electronic, and Optical Properties of Advanced Semiconductor Materials}
+\authorname{Research Scholar Name}
+\rollnumber{M.S. Roll No.}
+\regnumber{Registration No.}
+\session{2024-25}
+\supervisorname{Professor Dr. Supervisor Name}
+\supervisordesignating{Professor, Department of Physics, SUST}
+
+% Optional Co-supervisor (Leave empty to omit from title page and certificate)
+\cosupervisorname{Dr. Co-Supervisor Name}
+\cosupervisordesignating{Associate Professor, Department of Physics, SUST}
+
+% External Examiner details (For certificate page)
+\externalexaminername{Professor Dr. External Examiner}
+\externalexaminerdesignating{Professor, Department of Physics, University of Dhaka}
+
+\submissiondate{June 2026}
+
+% Initialize glossary and acronyms
+\makeglossaries
+\loadglsentries{glossary/acronyms}
+
+% ==============================================================================
+% Document Body
+% ==============================================================================
+\begin{document}
+
+% Preliminary section page numbering setup
+\pagenumbering{roman}
+
+% --- Front Matter ---
+\input{frontmatter/titlepage}
+\input{frontmatter/certificate}
+\input{frontmatter/declaration}
+\input{frontmatter/acknowledgments}
+\input{frontmatter/abstract}
+\input{frontmatter/lists}
+\input{frontmatter/nomenclature}
+
+% --- Main Matter ---
+\cleardoublepage
+\pagenumbering{arabic} % Restart page numbering in Arabic numerals
+\doublespacing % Apply double line spacing for the chapters
+
+
+\input{chapters/chapter01}
+\input{chapters/chapter02}
+\input{chapters/chapter03}
+\input{chapters/chapter04}
+\input{chapters/chapter05}
+\input{chapters/chapter06}
+
+% --- Back Matter ---
+\cleardoublepage
+
+% Print Glossary / Acronyms
+\printglossary[type=\acronymtype,title=List of Abbreviations,toctitle=List of Abbreviations]
+\cleardoublepage
+
+% Appendices
+\appendix
+\input{appendices/appendixA}
+\input{appendices/appendixB}
+\input{appendices/appendixC}
+
+\cleardoublepage
+
+\bibliographystyle{unsrtnat} % Sorted in order of citation, supports natbib fields
+\bibliography{bibliography/references}
+
+\end{document}

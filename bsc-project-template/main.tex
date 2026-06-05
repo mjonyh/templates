@@ -1,0 +1,52 @@
+%% Shahjalal University of Science and Technology (SUST)
+%% Department of Physics
+%% B.Sc. Project Report LaTeX Template
+%% Main master file: main.tex
+
+\documentclass[12pt,a4paper]{report}
+
+% Include packages and custom configurations
+\input{preamble/packages}
+
+\thesistitle{Design and Analysis of Non-linear Optical Systems for Light-Matter Interactions}
+\authorname{Student Name}
+\rollnumber{Student Reg. No.}
+\session{Student Session}
+\supervisorname{Supervisor Name}
+\submissiondate{Date of Submission}
+
+% ==============================================================================
+% Document Body
+% ==============================================================================
+\begin{document}
+
+% Preliminary section page numbering setup
+\pagenumbering{roman}
+
+% --- Front Matter ---
+\input{frontmatter/titlepage}
+\input{frontmatter/certificate}
+\input{frontmatter/declaration}
+\input{frontmatter/acknowledgments}
+\input{frontmatter/abstract}
+\input{frontmatter/lists}
+
+% --- Main Matter ---
+\cleardoublepage
+\pagenumbering{arabic} % Restart page numbering in Arabic numerals
+
+\input{chapters/chapter01}
+\input{chapters/chapter02}
+\input{chapters/chapter03}
+\input{chapters/chapter04}
+\input{chapters/chapter05}
+\input{chapters/chapter06}
+
+% --- Back Matter ---
+\cleardoublepage
+\input{appendices/appendixA}
+
+\bibliographystyle{unsrtnat} % Sorted in order of citation, supports natbib fields
+\bibliography{bibliography/references}
+
+\end{document}

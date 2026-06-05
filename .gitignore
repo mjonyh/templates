@@ -1,0 +1,28 @@
+# LaTeX auxiliary files (recursive)
+**/*.aux
+**/*.log
+**/*.out
+**/*.toc
+**/*.lof
+**/*.lot
+**/*.bbl
+**/*.blg
+**/*.bcf
+**/*.run.xml
+**/*.synctex.gz
+**/*.pdf
+
+# Glossaries/acronyms helper files (recursive)
+**/*.glo
+**/*.ist
+**/*.glg
+**/*.gls
+**/*.alg
+**/*.acr
+**/*.acn
+**/*.loa
+
+# Backup and temporary files
+**/*~
+**/*.bak
+.DS_Store

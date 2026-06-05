@@ -1,0 +1,50 @@
+%% Appendix C: Code Listings: appendices/appendixC.tex
+
+\chapter{Source Code Listings}
+\label{app:code}
+
+\section{Fortran 95 Numerical Integration Script}
+Listing~\ref{lst:fortran_code} shows a sample Fortran 95 subroutine implementing the trapezoidal rule for numerical integration.
+
+\begin{lstlisting}[style=fortranstyle, caption={Fortran 95 implementation of the trapezoidal rule.}, label={lst:fortran_code}]
+subroutine trapezoidal(f, a, b, n, result)
+  implicit none
+  ! Dummy arguments
+  real, external :: f
+  real, intent(in) :: a, b
+  integer, intent(in) :: n
+  real, intent(out) :: result
+  
+  ! Local variables
+  real :: h, x, sum_val
+  integer :: i
+  
+  h = (b - a) / float(n)
+  sum_val = 0.5 * (f(a) + f(b))
+  
+  do i = 1, n-1
+     x = a + float(i) * h
+     sum_val = sum_val + f(x)
+  end do
+  
+  result = sum_val * h
+end subroutine trapezoidal
+\end{lstlisting}
+
+\section{MATLAB Data Plotting Script}
+Listing~\ref{lst:matlab_code} demonstrates a MATLAB script to load calculation results and generate a publication-quality figure.
+
+\begin{lstlisting}[style=matlabstyle, caption={MATLAB script to plot strained bandgaps.}, label={lst:matlab_code}]
+% MATLAB script to plot bandgap vs strain
+data = load('strain_bandgap.txt');
+strain = data(:, 1);
+bandgap = data(:, 2);
+
+figure('Position', [100, 100, 600, 400]);
+plot(strain, bandgap, '-or', 'LineWidth', 2, 'MarkerSize', 8);
+grid on;
+xlabel('Biaxial Strain (%)', 'FontSize', 12, 'FontWeight', 'bold');
+ylabel('Bandgap Energy (eV)', 'FontSize', 12, 'FontWeight', 'bold');
+title('Bandgap Tuning of Monolayer MoS_2', 'FontSize', 14);
+saveas(gcf, 'bandgap_plot.png');
+\end{lstlisting}

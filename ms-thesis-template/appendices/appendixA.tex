@@ -1,0 +1,16 @@
+%% Appendix A: Mathematical Derivations: appendices/appendixA.tex
+
+\chapter{Supplementary Mathematical Derivations}
+\label{app:derivations}
+
+\section{Derivation of the Hartree-Fock Exchange Term}
+In this appendix, we outline the mathematical details of the Hartree-Fock exchange energy term, which is utilized in hybrid exchange-correlation functionals such as HSE06. The exact exchange energy for a closed-shell system is given by:
+\begin{equation}
+    E_x^{\text{HF}} = -\frac{e^2}{2} \sum_{i,j} \iint \frac{\psi_i^*(\mathbf{r}_1) \psi_j(\mathbf{r}_1) \psi_j^*(\mathbf{r}_2) \psi_i(\mathbf{r}_2)}{4\pi\epsilon_0 |\mathbf{r}_1 - \mathbf{r}_2|} d\mathbf{r}_1 d\mathbf{r}_2
+\end{equation}
+
+In hybrid functionals, this term is split into short-range (SR) and long-range (LR) parts using an error function:
+\begin{equation}
+    \frac{1}{r} = \frac{\text{erfc}(\mu r)}{r} + \frac{\text{erf}(\mu r)}{r}
+\end{equation}
+where $\mu$ is the screening parameter. The short-range Hartree-Fock exchange is then mixed with DFT exchange to speed up the convergence in periodic systems.

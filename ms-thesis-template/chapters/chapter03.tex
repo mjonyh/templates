@@ -1,0 +1,100 @@
+%% Chapter 3: Methodology: chapters/chapter03.tex
+
+% ==============================================================================
+% Chapter Guidelines & Content Description:
+% - Theoretical framework and mathematical equations.
+% - Computational methods and self-consistent flow (using TikZ).
+% - Demonstration of Algorithm floats and Code Listings.
+% ==============================================================================
+
+\chapter{Methodology and Theoretical Framework}
+\label{ch:methodology}
+
+\section{Density Functional Theory}
+The foundation of first-principles calculations is the Hohenberg-Kohn theorems, which state that all ground-state properties of a system are unique functionals of the electron density, $\rho(\mathbf{r})$. The Kohn-Sham single-particle equations are given by:
+\begin{equation}
+    \left[ -\frac{\hbar^2}{2m_e}\nabla^2 + V_{\text{eff}}(\mathbf{r}) \right] \psi_i(\mathbf{r}) = \epsilon_i \psi_i(\mathbf{r})
+    \label{eq:kohn_sham}
+\end{equation}
+where $V_{\text{eff}}(\mathbf{r})$ is the effective potential defined as:
+\begin{equation}
+    V_{\text{eff}}(\mathbf{r}) = V_{\text{ext}}(\mathbf{r}) + V_{\text{H}}(\mathbf{r}) + V_{\text{xc}}(\mathbf{r})
+    \label{eq:v_eff}
+\end{equation}
+Here, $V_{\text{ext}}$ is the external potential from nuclei, $V_{\text{H}}$ is the Hartree potential, and $V_{\text{xc}}$ is the exchange-correlation potential.
+
+\section{Self-Consistent Field Loop}
+The Kohn-Sham equations must be solved iteratively. Figure~\ref{fig:dft_flowchart} shows the standard self-consistent field (SCF) calculation workflow.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.8cm,
+        block/.style={rectangle, draw, fill=blue!10, text width=6cm, text centered, rounded corners, minimum height=1cm},
+        decision/.style={diamond, draw, fill=yellow!10, text width=2.5cm, text centered, inner sep=0pt, minimum height=1cm},
+        arrow/.style={thick, -{Latex[scale=1.2]}}
+    ]
+        % Nodes
+        \node (start) [block] {1. Initialize trial electron density $\rho_0(\mathbf{r})$};
+        \node (pot) [block, below of=start] {2. Calculate effective potential $V_{\text{eff}}(\mathbf{r})$ via Eq.~\eqref{eq:v_eff}};
+        \node (ks) [block, below of=pot] {3. Solve Kohn-Sham equations (Eq.~\eqref{eq:kohn_sham}) for $\psi_i$};
+        \node (dens) [block, below of=ks] {4. Compute new electron density $\rho_{\text{new}}(\mathbf{r}) = \sum |\psi_i|^2$};
+        \node (dec) [decision, below of=dens, yshift=-0.5cm] {Is $|\rho_{\text{new}} - \rho_{\text{old}}| < \eta$?};
+        \node (stop) [block, below of=dec, yshift=-0.5cm] {5. Calculation Converged! Output Energy and forces};
+        
+        % Arrows
+        \draw [arrow] (start) -- (pot);
+        \draw [arrow] (pot) -- (ks);
+        \draw [arrow] (ks) -- (dens);
+        \draw [arrow] (dens) -- (dec);
+        \draw [arrow] (dec) -- node[anchor=east] {Yes} (stop);
+        \draw [arrow] (dec.east) -- ++(2cm,0) |- node[anchor=south, xshift=1.5cm] {No: Mix density} (pot.east);
+    \end{tikzpicture}
+    \caption{Flowchart of the self-consistent field (SCF) loop in DFT calculations.}
+    \label{fig:dft_flowchart}
+\end{figure}
+
+\section{Numerical Algorithms}
+To optimize structural configurations, we employ a conjugate gradient algorithm. The pseudo-code for our implementation is outlined in Algorithm~\ref{alg:cg}.
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\KwIn{Initial position $\mathbf{x}_0$, tolerance $\epsilon$, max iterations $N$}
+\KwOut{Optimized position $\mathbf{x}^*$}
+Initialize gradient $\mathbf{g}_0 = \nabla E(\mathbf{x}_0)$ and direction $\mathbf{d}_0 = -\mathbf{g}_0$\;
+$k \leftarrow 0$\;
+\While{$k < N$ \textbf{and} $\|\mathbf{g}_k\| > \epsilon$}{
+  Compute step length $\alpha_k$ to minimize $E(\mathbf{x}_k + \alpha_k \mathbf{d}_k)$\;
+  Update position $\mathbf{x}_{k+1} \leftarrow \mathbf{x}_k + \alpha_k \mathbf{d}_k$\;
+  Calculate new gradient $\mathbf{g}_{k+1} \leftarrow \nabla E(\mathbf{x}_{k+1})$\;
+  Compute scaling factor $\beta_k \leftarrow \frac{\mathbf{g}_{k+1}^T \mathbf{g}_{k+1}}{\mathbf{g}_k^T \mathbf{g}_k}$\;
+  Update direction $\mathbf{d}_{k+1} \leftarrow -\mathbf{g}_{k+1} + \beta_k \mathbf{d}_k$\;
+  $k \leftarrow k + 1$\;
+}
+\caption{Conjugate Gradient minimization for structural relaxation.}
+\label{alg:cg}
+\end{algorithm}
+
+\section{Computational Automation Script}
+To automate strain calculations, we developed a Python automation script. The source code is shown in Listing~\ref{lst:python_strain}.
+
+\begin{lstlisting}[style=pythonstyle, caption={Python script to apply biaxial strain to a unit cell file.}, label={lst:python_strain}]
+import numpy as np
+
+def apply_biaxial_strain(lattice_vectors, strain_percentage):
+    """
+    Applies biaxial strain along the a and b directions.
+    """
+    factor = 1.0 + (strain_percentage / 100.0)
+    strained_lattice = np.copy(lattice_vectors)
+    strained_lattice[0] *= factor # Strain along a
+    strained_lattice[1] *= factor # Strain along b
+    return strained_lattice
+
+# Example usage for a 2% tensile strain
+lattice = np.array([[3.18, 0.0, 0.0],
+                    [-1.59, 2.75, 0.0],
+                    [0.0, 0.0, 15.0]])
+new_lattice = apply_biaxial_strain(lattice, 2.0)
+print("Strained Lattice Vectors:\n", new_lattice)
+\end{lstlisting}

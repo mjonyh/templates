@@ -1,0 +1,24 @@
+%% Chapter 5: Discussion (chapters/chapter05.tex)
+
+% ==============================================================================
+% Chapter Writing Guidelines:
+% - Analysis of results: Interpret the physical implications of Chapter 4 findings.
+% - Comparison with references: Compare values against published articles.
+% - Explanation of differences: Explain source of errors (e.g. beam alignment, sample impurities).
+% ==============================================================================
+
+\chapter{Discussion}
+\label{ch:discussion}
+
+The experimental values obtained for Quartz Glass and Fused Silica in Table \ref{tab:material_properties} align closely with standard literature indexes \cite{boyd2020nonlinear}. However, the highly non-linear SF59 glass exhibited substantial discrepancies between simulation and experiments under high input intensity profiles.
+
+\section{Interpretation of Transmission Profiles}
+As observed in Figure \ref{fig:transmission_plot}, the peak-to-valley profile indicates a positive third-order non-linear refractive index ($n_2 > 0$), corresponding to a self-focusing behavior. Had the valley preceded the peak, it would signify a self-defocusing response ($n_2 < 0$), commonly observed in materials like semiconductors under high-intensity pulses.
+
+\section{Analysis of Experimental Uncertainties}
+We identified several factors that contributed to experimental fluctuations\footnote{This was checked during system calibration steps under continuous beam laser profiles.}:
+\begin{quote}
+    ``Fluctuations in laser output power ($1-2\%$), impurities inside glass substrate channels, and minor errors in motorized rail adjustments caused coordinates deviation up to $\pm \SI{0.5}{\milli\meter}$.''
+\end{quote}
+Such alignment uncertainties must be minimized by adopting automatic photodiode averaging algorithms.
+Using the macro command, we can reference Section \ref{ch:methodology} for alignment schemes.
