@@ -53,6 +53,21 @@ Each template directory contains its own `Makefile` to automate the LaTeX compil
      make clean
      ```
 
+### ☁️ Using Overleaf
+
+If you prefer to write and compile your document on **Overleaf**, follow these steps:
+
+1. **Create a ZIP archive** of the specific template folder you wish to use (e.g., zip the contents of `bsc-project-template/` or `ms-thesis-template/`).
+   * *Note: Zip the inner contents of the folder directly, so that `main.tex` is located at the root of the ZIP file.*
+2. **Upload to Overleaf**:
+   * Log in to Overleaf.
+   * Click **New Project** -> **Upload Project**.
+   * Drag and drop the `.zip` archive.
+3. **Verify Settings**:
+   * Open the **Menu** (top-left inside the Overleaf editor).
+   * Ensure **Compiler** is set to **pdfLaTeX** and **Main document** is set to **`main.tex`**.
+   * Overleaf's build system will automatically handle the compilation of references (`biber`) and acronyms/glossaries (`makeglossaries`).
+
 ---
 
 ## 📖 Standard Structure
