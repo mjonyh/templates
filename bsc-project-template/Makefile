@@ -15,7 +15,6 @@ SRC = $(MAIN).tex \
       chapters/chapter03.tex \
       chapters/chapter04.tex \
       chapters/chapter05.tex \
-      chapters/chapter06.tex \
       appendices/appendixA.tex \
       bibliography/references.bib
 
