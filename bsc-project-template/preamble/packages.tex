@@ -119,6 +119,8 @@
 \newcommand{\rollnumber}[1]{\gdef\@rollnumber{#1}}
 \newcommand{\session}[1]{\gdef\@session{#1}}
 \newcommand{\supervisorname}[1]{\gdef\@supervisorname{#1}}
+\newcommand{\supervisordesignating}[1]{\gdef\@supervisordesignating{#1}}
+\newcommand{\headname}[1]{\gdef\@headname{#1}}
 \newcommand{\submissiondate}[1]{\gdef\@submissiondate{#1}}
 
 % Standard printing macros
@@ -127,5 +129,7 @@
 \newcommand{\printroll}{\@rollnumber}
 \newcommand{\printsession}{\@session}
 \newcommand{\printsupervisor}{\@supervisorname}
+\newcommand{\printsupervisordesig}{\@supervisordesignating}
+\newcommand{\printhead}{\@headname}
 \newcommand{\printdate}{\@submissiondate}
 \makeatother
