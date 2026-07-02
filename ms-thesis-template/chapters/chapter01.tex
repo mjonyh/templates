@@ -1,12 +1,73 @@
 %% Chapter 1: Introduction: chapters/chapter01.tex
 
 % ==============================================================================
-% Chapter Guidelines & Content Description:
-% - Background and Motivation: Describe the research context.
-% - Statement of the Problem: State what scientific question is being answered.
-% - Research Objectives: Enumerate the target goals.
-% - Scope & Limitations: Detail what is covered and what is not.
-% - Thesis Organization: Describe the contents of subsequent chapters.
+% CONTENT BLUEPRINT — Chapter 1: Introduction (M.S. Thesis)
+% ==============================================================================
+% Reading audience: M.S. committee, external examiner, peer researchers.
+% Goal: establish the research problem and its significance in 8–12 pages.
+%
+% Recommended length for an M.S. thesis: 10–15 pages.
+%
+% ----------------------------------------------------------------------------
+% §1.1 Background and Motivation  (2–3 pages)
+%   • Two paragraphs to establish context:
+%       – Paragraph 1: the field in general terms, why it matters now
+%         (technological drivers, recent advances).
+%       – Paragraph 2: the specific sub-problem the thesis addresses
+%         (e.g. multi-component superlattices under biaxial strain).
+%   • 6–10 references in this section, mixing classic theory papers, recent
+%     reviews (last 5 years), and 2–3 closely-related experimental works.
+%   • Close with a one-sentence statement of the unresolved issue, which the
+%     literature review (§1.2) will substantiate.
+%
+% §1.2 Problem Statement  (1 paragraph)
+%   • Crisp formulation: "Despite the progress summarised in §1.3, the
+%     connection between [process A] and [observable B] under [conditions C]
+%     has not been quantified."
+%   • Optional: quantitative framing (e.g. "no published value to within
+%     ±15 % at room temperature for X-class materials").
+%
+% §1.3 Literature Review  (3–5 pages)
+%   • Organise chronologically OR thematically — pick one and state it.
+%   • Cluster into 3 groups:
+%       – Foundational theoretical works,
+%       – Methodological developments (numerical / experimental),
+%       – Material-specific studies (closest to your system).
+%   • For each cluster: what was done, what was found, citation, and one-line
+%     critique.
+%   • Final paragraph: the gap your thesis fills, explicitly stated.
+%   • Use \citep{key1,key2} for grouped citations and \citet{key} for
+%     textualised citations; both work with natbib+\bibliography.
+%
+% §1.4 Research Objectives  (1 page)
+%   • 4–6 objectives. Each bullet must be:
+%       – Specific (which material, which method, which output),
+%       – Testable (you can say pass/fail at the end),
+%       – Bounded (achievable by thesis submission date).
+%   • Bad: "To study optical properties." Good: "To compute the complex
+%     dielectric function ε(ω) for monolayer MoS₂ under biaxial strain
+%     from 0 % to 6 % in steps of 1 %, using PBE+SOC in Quantum ESPRESSO."
+%
+% §1.5 Scope and Limitations  (½–1 page)
+%   • Inclusions: materials, methods, parameter ranges, code bases used.
+%   • Exclusions: temperature dependence, excitonic effects beyond Tamm-
+%     Dancoff, point defects, lattice vibrations, spin-orbit coupling if
+%     you decide to skip it. State exclusions explicitly.
+%   • Note any approximation (LDA / GGA / hybrid) and the consequence.
+%
+% §1.6 Thesis Organisation  (½ page)
+%   • One short paragraph per subsequent chapter. State its contribution and
+%     where its key results are summarised in §5.x.
+%   • Forward-pointer to the §2.1 theoretical framework.
+%
+% Writing-style rules:
+%   • Past tense for what others reported; present tense for current
+%     understanding.
+%   • Use \gls{key} for acronyms declared in glossary/acronyms.tex. Always
+%     spell out the acronym on first use within the chapter (the glossaries
+%     package handles this automatically).
+%   • Equations referenced from later chapters must carry \label{eq:...}
+%     and use \eqref{...}.
 % ==============================================================================
 
 \chapter{Introduction}

@@ -1,10 +1,61 @@
 %% Chapter 2: Literature Review: chapters/chapter02.tex
 
 % ==============================================================================
-% Chapter Guidelines & Content Description:
-% - Review of prior published work in chronological/thematic order.
-% - Theoretical framework and historical developments.
-% - Identify gaps in literature that the current research seeks to address.
+% CONTENT BLUEPRINT — Chapter 2: Literature Review (M.S. Thesis)
+% ==============================================================================
+% Reading audience: examiner who needs to assess whether the candidate has
+% read broadly and positioned the work correctly.
+% Goal: deliver a critical synthesis of prior work — not a list of abstracts.
+%
+% Recommended length: 12–20 pages.
+%
+% ----------------------------------------------------------------------------
+% §2.1 Historical Perspective  (2–3 pages)
+%   • Trace the field from its earliest principled formulation. Include:
+%       – The breakthrough paper(s) that made the field quantitative.
+%       – Major theoretical milestones (no need to recite all of them; pick
+%         the ones whose equations §3.1 will reuse).
+%       – A one-paragraph "why this line of work eventually stalled or
+%         diverged" closing the section.
+%
+% §2.2 Theoretical Foundations  (3–4 pages)
+%   • Develop the formal framework that chapter 4 will need:
+%       – State the central equations (numbered, with units in \si{...}).
+%       – For each, derive the working formula that your code implements.
+%       – Identify the regimes of validity (e.g. "valid for ε ≤ 5 % biaxial
+%         strain; above this, anharmonic contributions dominate").
+%   • End with a small worked example, ready for §4.2 to compare against.
+%
+% §2.3 Computational and Experimental Methods  (3–4 pages)
+%   • Comprehensive review of the tools other groups have used. For each:
+%       – Method name, who introduced it, what it computes.
+%       – Strengths and weaknesses in 1–2 sentences.
+%       – At least one citation per mainstream method (DFT, GW, BSE, MD,
+%         Monte Carlo, etc. — only those relevant to your work).
+%   • Identify the "method gap" if any (e.g. "few works combine hybrid
+%     functionals with spin-orbit coupling for this material class").
+%
+% §2.4 Material-Specific Body of Work  (3–4 pages)
+%   • Critical summary of the closest-studied systems. One subsection per
+%     relevant sub-class (e.g. "2.4.1 TMD monolayers", "2.4.2 Heterostructures").
+%   • For each subsection:
+%       – A representative comparison table (literature | method | reported
+%         value | reference).
+%       – A discussion paragraph that identifies what is consistent vs what
+%         is still debated.
+%       – Forward-pointer to what the present thesis adds.
+%
+% §2.5 Positioning of the Present Work  (½–1 page)
+%   • One paragraph that names exactly what is new relative to §2.1–§2.4.
+%   • Cite this section in §1.5 / §5.2 of the introduction/conclusion to
+%     keep the narrative thread tight.
+%
+% Writing-style rules:
+%   • Critical, not descriptive. "X used DFT with LDA and obtained bandgap
+%     E_g = 0.6 eV; however, LDA systematically underestimates gaps — the
+%     value should be re-examined using hybrid functionals (see §2.3)."
+%   • Compare studies against each other, not just one against an ideal.
+%   • Cite 40–80 references across the chapter (typical M.S. range).
 % ==============================================================================
 
 \chapter{Literature Review}

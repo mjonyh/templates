@@ -1,5 +1,31 @@
 %% Appendix B: Supplementary Data Tables: appendices/appendixB.tex
 
+% ==============================================================================
+% CONTENT BLUEPRINT — Appendix B: Supplementary Data Tables
+% ==============================================================================
+% All data tables referenced in the main text should live here when they
+% exceed a few rows OR when they are reusable across multiple chapters.
+%
+% Recommended content:
+%   • One table per subsection. Title the subsection by the table's
+%     dataset (e.g. \section{Calculated Bandgap Values under Strain}).
+%   • Every column has units (\si{...}) in the header.
+%   • Every numeric value has uncertainty where known.
+%   • Caption explains origin of data: which code run, which input deck,
+%     which calculation date.
+%   • Use booktabs (\toprule, \midrule, \bottomrule) — never vertical lines.
+%   • For very large tables, point readers to the Zenodo DOI / GitHub
+%     repository and keep only a representative excerpt in the PDF.
+%
+% Conventions:
+%   • Tables are referenced from the main text (Chapter 4/5) by label.
+%     Example: "see Table~\ref{tab:strain_data_raw} in Appendix~B".
+%   • If a column has missing values, write \textemdash{} (em-dash), not
+%     blank or "N/A".
+%   • Sticky bits of context belong in subsection prose, not in table
+%     captions.
+% ==============================================================================
+
 \chapter{Additional Data Tables}
 \label{app:data_tables}
 

@@ -1,10 +1,60 @@
 %% Chapter 4: Results and Analysis (Part I): chapters/chapter04.tex
 
 % ==============================================================================
-% Chapter Guidelines & Content Description:
-% - Presentation of primary research results (structural, electronic).
-% - Structured tables using booktabs package.
-% - Interactive data plots using pgfplots package.
+% CONTENT BLUEPRINT — Chapter 4: Results and Analysis (Part I) — Structural
+%                       and Electronic Properties
+% ==============================================================================
+% Reading audience: examiner who must judge whether the candidate's results
+% meet the §1.4 objectives.
+% Goal: present structural and electronic results, no interpretation.
+%
+% Recommended length: 12–20 pages.
+%
+% ----------------------------------------------------------------------------
+% §4.1 Structural Relaxation  (3–4 pages)
+%   • State convergence criteria (force, stress, energy) and whether they
+%     were met for each material.
+%   • One summary table (calculated vs experimental lattice parameters and
+%     bulk modulus) — already in this template.
+%   • Discuss any unusual behaviour (failed relaxation, switching of
+%     magnetic ground state, etc.) — essential for transparency.
+%
+% §4.2 Phase Stability and Equation of State  (2–3 pages)
+%   • Energy vs volume curve, fitted to Birch-Murnaghan EOS.
+%   • One figure per material system.
+%   • Tabulate equilibrium volume V_0, bulk modulus B_0, pressure derivative
+%     B'_0, with uncertainties.
+%
+% §4.3 Electronic Band Structure  (3–4 pages)
+%   • Plot bandstructure along high-symmetry direction.
+%   • Highlight VBM, CBM, direct vs indirect gap, secondary valleys.
+%   • Tabulate computed bandgap values, with k-point density used.
+%
+% §4.4 Density of States  (1–3 pages)
+%   • Total DOS (DOS) and per-orbital / per-atom projected DOS (PDOS).
+%   • One panel per element / orbital — clearly labelled.
+%   • Reference Acronym \gls{...} entries (DOS, PDOS, VBM, CBM).
+%
+% §4.5 Bandgap Tuning under Strain  (2–3 pages)
+%   • Plot bandgap vs strain (already in this template).
+%   • Tabulate numeric values alongside the figure).
+%   • Identify the strain at which direct ↔ indirect crossover occurs,
+%     if present.
+%
+% §4.6 Effective Mass Extraction  (1–2 pages)
+%   • Method: parabolic fit around extrema; cite Eq. from §3 framework.
+%   • Tabulate m*_e and m*_h values for each material.
+%
+% §4.7 Limitations Observed  (½ page)
+%   • Note any spurious results, incomplete sweeps, or systematic trends
+%     in numerical noise.
+%   • This MUST be honest (mirrors §3.7 of BSc).
+%
+% Writing-style rules:
+%   • Past tense. "We computed", "the relaxed lattice parameter is..."
+%   • No causal claims. "The bandgap decreases with strain" — give the
+%     number, not the explanation (save explanation for Chapter 5).
+%   • Every plot/table must be referenced in prose before AND after display.
 % ==============================================================================
 
 \chapter{Results and Analysis (Part I): Structural and Electronic Properties}

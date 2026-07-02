@@ -1,10 +1,76 @@
 %% Chapter 3: Methodology: chapters/chapter03.tex
 
 % ==============================================================================
-% Chapter Guidelines & Content Description:
-% - Theoretical framework and mathematical equations.
-% - Computational methods and self-consistent flow (using TikZ).
-% - Demonstration of Algorithm floats and Code Listings.
+% CONTENT BLUEPRINT — Chapter 3: Methodology (M.S. Thesis)
+% ==============================================================================
+% Reading audience: examiner who must judge whether the tools are appropriate
+% and reproducible.
+% Goal: state every theoretical, computational, and procedural step in
+% sufficient detail that a competent peer could reproduce your results.
+%
+% Recommended length: 15–25 pages.
+%
+% ----------------------------------------------------------------------------
+% §3.1 Theoretical Framework  (3–5 pages)
+%   • Begin with the theoretical milestones unique to your work (those
+%     introduced in Chapter 2 are referenced, not re-derived here).
+%   • State the exact exchange-correlation functional, pseudopotential,
+%     basis set, and any special corrections (DFT-D3, Hubbard U, spin-
+%     orbit coupling, etc.).
+%   • Each step should be a numbered equation with units and a brief note
+%     on validity.
+%
+% §3.2 Computational Details  (4–6 pages)
+%   • Sofware stack: package name + version + commit/tag, OS, compilers,
+%     libraries, MPI configuration, parallel count, node architecture.
+%   • Input-deck summary: where the full input files are deposited (GitHub
+%     repo + Zenodo DOI), and what each major variable controls.
+%   • Convergence criteria summary table:
+%       plane-wave cutoff E_cut, k-grid density, SCF tolerance, ionic
+%       force tolerance, electronic step count limit.
+%   • One convergence plot per criterion (kinetic energy cut, k-point
+%     density). Reference Algorithm from algorithms/ if you use it.
+%
+% §3.3 Self-Consistent Field Implementation  (3–4 pages)
+%   • Worked example showing one full SCF cycle, with decision criterion
+%     visible (Algorithm alg:scf).
+%   • State mixing scheme (Broyden, Kerker, Pulay), mixing parameter β, or
+%     cite the default in the code base.
+%
+% §3.4 Structural Relaxation  (2–3 pages)
+%   • Describe the algorithm (BFGS, conjugate gradient, FIRE), force and
+%     stress thresholds, max step.
+%   • Show the relaxed lattice parameters and how you selected the
+%     representative configuration.
+%
+% §3.5 Strain Application  (1–2 pages)
+%   • How strain increments (0 %, 1 %, 2 %, …) were imposed.
+%   • How residual stress (if any) was handled.
+%
+% §3.6 Property Calculations  (4–6 pages)
+%   • One subsection per computed property:
+%       3.6.1 Band structure and density of states
+%       3.6.2 Effective mass extraction
+%       3.6.3 Dielectric function and optical absorption
+%       3.6.4 Carrier mobility (Boltzmann transport, if used)
+%   • State the formula implemented, the code path (function names in VASP
+%     / Quantum ESPRESSO / custom scripts), and any k-grid specifics.
+%   • End with a "Reproducibility checklist" table listing all software
+%     versions, input files, and output artefacts.
+%
+% §3.7 Data Processing and Visualisation  (1–2 pages)
+%   • Tool chain: numpy / scipy / pandas / matplotlib / pymatgen / ASE
+%     versions.
+%   • Any smoothing, fitting, or post-processing with citations to
+%     algorithms.
+%   • Data and figures deposited where (Zenodo DOI + Git tag).
+%
+% Writing-style rules:
+%   • Distinguish "we did" from "the framework requires". Don't take
+%     credit for the equations — acknowledge the original methods paper.
+%   • Every parameter that affects a published number must be recorded.
+%   • Keep equations short. Anything longer than 3 displayed lines goes to
+%     Appendix A.
 % ==============================================================================
 
 \chapter{Methodology and Theoretical Framework}

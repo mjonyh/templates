@@ -1,14 +1,67 @@
 %% Chapter 5: Results and Analysis (Part II) / Discussion: chapters/chapter05.tex
 
 % ==============================================================================
-% Chapter Guidelines & Content Description:
-% - Optical properties (dielectric function, absorption spectra).
-% - Discussion and physical interpretations of findings.
-% - Comparison with experimental and theoretical literature.
-% - Explanation of observed anomalies or trends.
+% CONTENT BLUEPRINT — Chapter 5: Results and Analysis (Part II) — Optical
+%                       Properties and Discussion
+% ==============================================================================
+% Reading audience: examiner who must assess the depth of the candidate's
+% interpretation as well as the depth of the data.
+% Goal: present optical-property results, then interpret EVERY result from
+% Chapters 4 and 5 in context.
+%
+% Recommended length: 15–25 pages.
+%
+% ----------------------------------------------------------------------------
+% PART A — Optical results (data only, no interpretation):
+%
+% §5.1 Dielectric Function  (3–4 pages)
+%   • Real and imaginary parts of ε(ω); identify peak assignments.
+%   • Separate panel for each polarisation direction (xx, yy, zz).
+%   • Reference §3.6 parameter conventions.
+%
+% §5.2 Absorption Coefficient and Optical Conductivity  (2–3 pages)
+%   • α(ω) vs photon energy, plotted on log scale for tail region.
+%   • Tabulate extracted values at common reference energies
+%     (1.0 eV, 1.5 eV, 2.0 eV, 3.0 eV).
+%
+% §5.3 Reflectivity, Transmission, Loss Function  (1–2 pages)
+%   • Optional plots; useful for completeness.
+%
+% §5.4 Excitonic Effects (if computed)  (1–3 pages)
+%   • GW/BSE spectra; identify bound-exciton binding energies.
+%   • Cite methodology from §3 framework.
+%
+% PART B — Discussion (interpretation):
+%
+% §5.5 Interpretation of Structural / Electronic Results  (3–4 pages)
+%   • One numbered subsection per Chapter 4 result. Discuss each in order.
+%   • Compare against literature values from Chapter 2.
+%   • Quantify discrepancies and propose specific explanations.
+%
+% §5.6 Interpretation of Optical Results  (3–4 pages)
+%   • One numbered subsection per §5.1–§5.4 result.
+%   • Use dielectric function peaks to identify transitions, relate to
+%     §4.3 bandstructure.
+%
+% §5.7 Combined Picture  (½–1 page)
+%   • Integrate the structural + electronic + optical findings into one
+%     concise picture of how strain modifies ground and excited
+%     properties.
+%
+% §5.8 Uncertainty Quantification  (1–2 pages)
+%   • Build an uncertainty budget: k-mesh sampling, plane-wave cutoff,
+%     pseudopotential choice, exchange-correlation approximation.
+%   • Each row: source | magnitude (meV) | how reduced (or irreducible).
+%
+% Writing-style rules:
+%   • Part A: past tense, descriptive only.
+%   • Part B: causal language permitted only when supported by data and
+%     theory.
+%   • Avoid hedging adjectives such as "obviously" / "clearly" / "we see".
+%   • Cite every claim that originates outside your own computation.
 % ==============================================================================
 
-\chapter{Results and Analysis (Part II): Optical Properties and Discussion}
+\chapter{Results and Analysis (Part II) / Discussion}
 \label{ch:results_2}
 
 \section{Optical Absorption Spectrum}

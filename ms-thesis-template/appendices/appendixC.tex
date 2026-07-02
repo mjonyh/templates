@@ -1,5 +1,43 @@
 %% Appendix C: Code Listings: appendices/appendixC.tex
 
+% ==============================================================================
+% CONTENT BLUEPRINT — Appendix C: Source Code Listings
+% ==============================================================================
+% Full source of every analysis / processing script referenced in
+% Chapters 4 and 5.
+%
+% Recommended content:
+%   • One subsection per script. Subsections titled by the script's name.
+%   • Each listing:
+%       – Choice of language style is whichever matches the script:
+%         style=pythonstyle, style=fortranstyle, style=matlabstyle, ...,
+%         or lstinputlisting{filename} if the file is versioned in the
+%         accompanying Git repository.
+%       – Caption above the listing, with version hash or tag if relevant.
+%       – Label is lst:<script>_<purpose> for easy cross-reference.
+%       – Inline comments inside the code MUST explain non-obvious lines.
+%   • State, somewhere, the canonical public repository (GitHub + Zenodo
+%     DOI) where the as-shipped code lives. Reference this once near the
+%     start of Appendix C.
+%   • Cite any third-party library used (NumPy, SciPy, pymatgen, ASE,
+%     Quantum ESPRESSO, VASP, ...)
+%     — full citation goes in the bibliography, but a quick pointer
+%       inside the appendix helps reviewers find dependencies.
+%   • If you write Fortran, MATLAB, or Python together, choose the
+%     listings = flexible approach so the listings indent sensibly with
+%     double-spacing of the rest of the thesis (see preamble/packages.tex
+%     for the per-language style definitions; all use \footnotesize with
+%     \setstretch{1.0} so the lines stay single-spaced inside the listing
+%     even when the chapter is double-spaced).
+%
+% Conventions:
+%   • Keep listing bodies NO WIDER than 0.9 \textwidth.
+%   • For long scripts, prefer to show only the function being described
+%     and reference the full file in the Git repo.
+%   • Do NOT embed edited screenshots of IDE windows. Listings are
+%     text-only and version-controlled.
+% ==============================================================================
+
 \chapter{Source Code Listings}
 \label{app:code}
 
