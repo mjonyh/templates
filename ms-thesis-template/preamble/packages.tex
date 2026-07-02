@@ -68,6 +68,12 @@
   exponent-product = \times
 }
 
+% Restore BIPM-deprecated units locally (siunitx >=3 emits a deprecation
+% warning when these are invoked without an explicit declaration).
+\DeclareSIUnit\angstrom{\text{\AA}}
+\DeclareSIUnit\micron{\micro\meter}
+\DeclareSIUnit\mmHg{\milli\meter\tothe{-2}\tothe{-1}\of{Hg}}
+
 % --- Tables ---
 \usepackage{booktabs}
 \usepackage{array}
