@@ -1,11 +1,77 @@
 %% Chapter 2: Methodology (chapters/chapter02.tex)
 
 % ==============================================================================
-% Chapter Writing Guidelines:
-% - Background theory: Detail equations, physical principles, and derivations.
-% - Experimental setup: Materials, procedures, diagrams, and code snippets.
-% - Diagram: Provide a clear block diagram or optical schematic.
-% - Code snippets: Document details of data acquisition/analysis scripts.
+% CONTENT BLUEPRINT — Chapter 2: Methodology / Theory & Experimental Setup
+% ==============================================================================
+% Reading audience: examiner who needs to reproduce your work; committee who
+% judges whether the methods are appropriate.
+% Goal: provide enough physical and procedural detail that a competent peer
+% can rebuild the experiment without contacting you.
+%
+% Recommended length: 10–15 pages. Two parallel tracks:
+%   Track A — Theory: §2.1–§2.2 (with equations, references to textbooks).
+%   Track B — Practice: §2.3–§2.5 (instruments, calibration, code).
+%
+% ----------------------------------------------------------------------------
+% §2.1 Background Theory  (3–4 pages)
+%   • Start from the most general formulation in your field. Equations should
+%     appear in the natural logical order so that Eq. (n+1) uses quantities
+%     defined in Eq. (n).
+%   • 4–8 equations is normal. Beyond that, move derivations to Appendix A.
+%   • For each equation:
+%       – State physically what each symbol means AFTER you display the
+%         equation (not before). Reader should not have to scroll back.
+%       – Indicate the units explicitly via \si{...}.
+%       – State the validity domain (e.g. "valid for |n₂| ≪ 1", "in the
+%         slowly-varying envelope approximation").
+%   • End §2.1 by deriving, in one or two lines, the working equation that
+%     the experiment measures. This equation MUST be referenced again in
+%     Chapter 3 from every plot that uses it.
+%
+% §2.2 Numerical Modelling  (1–2 pages)
+%   • If your project uses Python / Fortran / MATLAB to simulate the system,
+%     walk through the model here.
+%   • Show the model equations. State the discretisation (grid, time step,
+%     tolerances). Cite the numerical method used (RK4, finite-difference,
+%     finite-element, BFGS, conjugate-gradient, etc.).
+%   • Optional: a small worked example (e.g. analytic limit vs numerical)
+%     that you will plot in Chapter 3.
+%
+% §2.3 Experimental / Computational Setup  (3–5 pages)
+%   • List every instrument by name, model number, manufacturer, and key
+%     specification (wavelength, focal length, dynamic range).
+%   • Describe the measurement chain in source-to-output order so the reader
+%     traces the same path as the light / signal.
+%   • Include ONE block diagram of the apparatus (TikZ suggestion kept below).
+%     Every block in the diagram must appear in the prose.
+%   • Calibration: describe any calibration procedures, with date and
+%     reference standard. State who certified each instrument.
+%
+% §2.4 Data Acquisition and Processing  (1–2 pages)
+%   • State sample size (how many Z-scan traces, how many unit cells, etc.).
+%   • State acquisition rate / dwell time / averaging per data point.
+%   • Describe pre-processing: smoothing, baseline removal, normalisation.
+%   • Describe how outliers are handled — exclusion criteria must be objective
+%     ("points where laser power drifted more than 2 % from setpoint" beats
+%     "obviously bad points").
+%
+% §2.5 Code Listings and Computational Reproducibility  (1–2 pages)
+%   • Provide the canonical analysis script(s) here. Use \begin{lstlisting}
+%     with style=pythonstyle (or the language-specific style).
+%   • For each listing:
+%       – Caption above the listing (see project style guide: figures below,
+%         tables above, listings above).
+%       – Cross-reference the listing where its output is discussed in
+%         Chapter 3.
+%   • State the software version, OS, library versions, and any seeds used.
+%     Data and scripts SHOULD be deposited in a public archive (Zenodo,
+%     GitHub with Zenodo DOI) and the DOI cited here.
+%
+% Writing-style rules for this chapter:
+%   • Use "the apparatus", "the simulation", not "we set up" unless describing
+%     a manual action you performed.
+%   • Every numbered equation must be referenced at least once later.
+%   • Every instrument must be cited from §3 when its data is reported.
 % ==============================================================================
 
 \chapter{Methodology}

@@ -1,11 +1,58 @@
 %% Chapter 3: Results (chapters/chapter03.tex)
 
 % ==============================================================================
-% Chapter Writing Guidelines:
-% - Presentation of data: Show raw values, processed datasets, and curves.
-% - Formatting rules: Include units correctly using the siunitx package.
-% - Figure rules: Captions must be located below the figure.
-% - Table rules: Captions must be located above the table.
+% CONTENT BLUEPRINT — Chapter 3: Results
+% ==============================================================================
+% Reading audience: examiner who will check whether the data support the
+% claims in Chapter 1.
+% Goal: present all measured / computed results clearly, objectively, and
+% without interpretation. Interpretation belongs to Chapter 4.
+%
+% Recommended length: 10–15 pages. Order results in the same logical order
+% as the objectives in §1.4 — this makes it obvious whether each objective
+% was met.
+%
+% ----------------------------------------------------------------------------
+% §3.1 Experimental / Computational Dataset  (1–2 pages)
+%   • State the size of the dataset (how many samples, runs, sweeps,
+%     configurations).
+%   • Compactly tabulate the categorical parameters used (laser wavelength,
+%     input intensity, sample thickness, etc.) — typically one summary
+%     table at the start of the chapter.
+%   • All numerical values MUST be rendered with siunitx (\num{...} and
+%     \si{...}); avoid raw decimals in prose. 0.85e-16 → \num{0.85e-16}.
+%
+% §3.2 Primary Results  (4–6 pages, the bulk of the chapter)
+%   • Order figures/tables by objective. One figure per finding.
+%   • Each figure/table gets a self-contained caption. Captions MUST contain:
+%       – What is plotted / tabulated,
+%       – At what conditions (T, λ, intensity, etc.),
+%       – What the trend or magnitude is in words, so the reader does not
+%         need to read the prose to interpret the image.
+%   • Every figure must be referenced in the prose before and after the
+%     display (introduce before, summarise the trend after).
+%   • State uncertainty on every reported value, with units.
+%
+% §3.3 Secondary Results and Auxiliary Checks  (1–3 pages)
+%   • Sanity checks: agreement with literature baselines, sensitivity to
+%     parameters held fixed, repeatability runs.
+%   • Each check answers one specific concern from §1.3 (problem statement)
+%     or §1.5 (scope).
+%
+% §3.4 Limitations Observed in the Data  (½–1 page)
+%   • Note where the data fall short of objective — incomplete sweeps,
+%     noise floor, systematic drift, etc.
+%   • This MUST be honest. Suppressing limitations here and acknowledging
+%     them only in Chapter 4 is a methodological red flag.
+%
+% Writing-style rules for this chapter:
+%   • Past tense. This is what was found.
+%   • No causal language ("because", "due to" interpretive claims).
+%     Restrict verbs to: shows, displays, exhibits, yields, measures,
+%     computes. Save "explains / causes / proves" for Chapter 4.
+%   • No "we can see that X" — the figure caption already states X.
+%   • Provide raw data alongside this document (Zenodo DOI / GitHub tag)
+%     and link to it.
 % ==============================================================================
 
 \chapter{Results}
