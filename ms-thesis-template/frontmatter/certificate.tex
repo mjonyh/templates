@@ -10,24 +10,27 @@ This work has been done under my supervision and guidance and has not been submi
 \vspace{1.0in}
 
 \noindent
-\begin{minipage}[t]{0.45\textwidth}
+\begin{minipage}[t]{\textwidth}
     \centering
     \rule{6cm}{0.4pt} \\
     \textbf{\printsupervisor} \\
     Supervisor \\
     \printsupervisordesig
 \end{minipage}
-\hfill
-\begin{minipage}[t]{0.45\textwidth}
-    \centering
-    \ifx\printcosupervisor\empty
-    \else
+
+\ifx\printcosupervisor\empty
+\else
+    \vspace{1.0in}
+
+    \noindent
+    \begin{minipage}[t]{\textwidth}
+        \centering
         \rule{6cm}{0.4pt} \\
         \textbf{\printcosupervisor} \\
         Co-Supervisor \\
         \printcosupervisordesig
-    \fi
-\end{minipage}
+    \end{minipage}
+\fi
 
 \vspace{1.0in}
 
@@ -35,10 +38,24 @@ This work has been done under my supervision and guidance and has not been submi
 \begin{minipage}[t]{\textwidth}
     \centering
     \rule{6cm}{0.4pt} \\
-    \textbf{Prof. Dr. Head Name} \\
+    \textbf{\printhead} \\
     Head of Department \\
     Department of Physics, SUST
 \end{minipage}
+
+\ifx\printexternal\empty
+\else
+    \vspace{1.0in}
+
+    \noindent
+    \begin{minipage}[t]{\textwidth}
+        \centering
+        \rule{6cm}{0.4pt} \\
+        \textbf{\printexternal} \\
+        External Examiner \\
+        \printexternaldesig
+    \end{minipage}
+\fi
 
 \vspace{0.8in}
 \noindent
