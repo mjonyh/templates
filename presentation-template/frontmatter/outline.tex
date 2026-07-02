@@ -1,0 +1,59 @@
+%% SLIDE 2 — Outline + 7-minute pacing roadmap
+%% Two-column: left = section list, right = horizontal mini-bar showing how
+%% time is allocated across slides. Examiner immediately understands pacing.
+
+\begin{frame}{Outline of the Talk}
+  \begin{columns}[T, totalwidth=\textwidth]
+    % ----- Left column: bullet outline -----
+    \begin{column}{0.55\textwidth}
+      \vspace{-4pt}
+      \begin{enumerate}
+        \item Title page                              \hfill{\color{sustGray}0:00--0:15}
+        \item Outline (this slide)                   \hfill{\color{sustGray}0:15--0:30}
+        \item \textbf{Problem \& objectives}          \hfill{\color{sustGray}0:30--1:15}
+        \item \textbf{Methodology}                    \hfill{\color{sustGray}1:15--2:00}
+        \item \textbf{Headline results}               \hfill{\color{sustGray}2:00--3:30}
+        \item Other results                          \hfill{\color{sustGray}3:30--4:30}
+        \item Discussion \& limitations               \hfill{\color{sustGray}4:30--5:30}
+        \item Summary \& future work                  \hfill{\color{sustGray}5:30--6:15}
+        \item References \& acknowledgements          \hfill{\color{sustGray}6:15--6:45}
+        \item Thank you / questions                  \hfill{\color{sustGray}6:45--7:00}
+      \end{enumerate}
+      \vspace{0.2cm}
+      \timenote{Spend 80\% of time on slides 3--8. Slides 9--10 are read-only.}
+    \end{column}
+
+    % ----- Right column: visual pacing bar -----
+    \begin{column}{0.42\textwidth}
+      \vspace{-6pt}
+      \begin{tikzpicture}[
+        bar/.style={rounded corners=1pt, draw=none, minimum height=0.55cm,
+                    align=center, font=\scriptsize\bfseries, text=white}
+      ]
+        % axis (7-minute timeline)
+        \draw[sustGray, thick] (0,0) -- (7,0);
+        \foreach \x/\m in {0/0', 1/1', 2/2', 3/3', 4/4', 5/5', 6/6', 7/7'}{
+          \draw[sustGray] (\x, 0.07) -- (\x, -0.07) node[below=2pt, font=\tiny, color=sustGray]{\m};
+        }
+
+        % Blocks (duration in minutes)
+        \fill[sustBlueDark]      (0.0, 0.1) rectangle (0.25, 0.5) node[midway]{1};
+        \fill[sustBlueLight]     (0.25, 0.1) rectangle (0.5, 0.5) node[midway]{2};
+
+        % Highlight the slides that carry the most analytic weight
+        \fill[sustAccent]        (0.5, 0.7) rectangle (1.75, 1.1) node[midway]{Problem+Method (45s)};
+        \fill[sustAccent]        (1.75, 0.7) rectangle (3.0, 1.1) node[midway]{Headline results (90s)};
+        \fill[sustBlue]          (3.0, 0.7) rectangle (4.0, 1.1) node[midway]{Other (60s)};
+        \fill[sustBlueLight]     (4.0, 0.7) rectangle (5.0, 1.1) node[midway]{Discussion (60s)};
+        \fill[sustBlueDark]      (5.0, 0.7) rectangle (5.75, 1.1) node[midway]{Summary (45s)};
+        \fill[sustGray]          (5.75, 0.7) rectangle (6.75, 1.1) node[midway]{Refs+Thanks (30s)};
+        \fill[sustGray!70]       (6.75, 0.7) rectangle (7.0, 1.1) node[midway]{Q\&A};
+
+        \node[font=\scriptsize, color=sustGray, anchor=west] at (0, -0.7)
+              {\textbullet{} grey  = read-only};
+        \node[font=\scriptsize, color=sustAccent, anchor=west] at (0, -1.1)
+              {\textbullet{} accent = where you earn your grade};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}

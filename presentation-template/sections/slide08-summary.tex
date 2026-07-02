@@ -1,0 +1,73 @@
+%% sections/slide08-summary.tex — SLIDE 8 — Summary & future work
+%% =============================================================================
+%% CONTENT BLUEPRINT — Summary and Future Work
+%% =============================================================================
+%% Time budget: 45 seconds.
+%%
+%% WHAT TO PUT HERE:
+%%
+%%   TOP — one headline paragraph (3 sentences max)
+%%     Sentence 1: What was studied (rephrase the title in plain words).
+%%     Sentence 2: What was done.
+%%     Sentence 3: What was found (the headline number with units).
+%%
+%%   MIDDLE — verdict table mapping each objective to its outcome.
+%%     Two-column table:
+%%       | Objective (from slide 3)        | Status                      |
+%%       | O1: measure n₂ of SF59          | met (slide 5, value + unc)  |
+%%       | O2: extract ... vs strain       | met (slide 6 R2)            |
+%%       | O3: compare with literature     | partial (8/10 refs agree; 2 |
+%%       |                                 |  flagged for re-examination)|
+%%       | O4: assess X                    | not met (out of scope, ...)|
+%%
+%%     Verdict labels: \highlight{met} / \highlight{partial} / \highlight{not met}.
+%%     Be honest. The examiner will read the thesis.
+%%
+%%   BOTTOM — Future work bullets.
+%%     • 3–4 bullets. Each bullet is ONE specific future direction.
+%%     • Pattern: "To extend this to [X] by [method], which [physical insight]."
+%%     • Optional: include 1-line resource estimate (compute, time, equipment)
+%%       for one of the future directions — shows you've thought about it.
+%%
+%% LAYOUT TIP:
+%%   • Use a \begin{beamercolorbox}[wd=.96\paperwidth]{block body example}
+%%     box for the headline paragraph so it is visually separated from the
+%%     verdict table and bullets.
+%% =============================================================================
+
+\begin{frame}{Summary \& Future Work}
+  \begin{beamercolorbox}[wd=.96\paperwidth, sep=8pt]{block body example}
+    \textbf{\color{sustBlueDark}Headline.}
+    \medskip
+
+    \itshape In this work we \highlight{[verb: studied / measured /
+    computed]} \highlight{[system]} \highlight{[phenomenon]} by
+    \highlight{[method]}, and found that \highlight{[target quantity]}\,=\,
+    \highlight{[value]}\,$\pm$\,[uncertainty]\,[unit] under
+    \highlight{[conditions]} — \highlight{[agreement / deviation]} with
+    literature.
+  \end{beamercolorbox}
+
+  \vspace{0.1cm}
+  \small
+  \begin{tabular}{@{}p{0.62\linewidth}@{\,}p{0.33\linewidth}@{}}
+    \toprule
+    \textbf{Objective} & \textbf{Status (slide reference)} \\
+    \midrule
+    O1 — Measure $n_2$ of SF59 at 632.8 nm & \highlight{met} (slide 5) \\
+    O2 — Extract $n_2$ vs.\ input intensity & \highlight{met} (slide 6 R2) \\
+    O3 — Compare with 10 published refs & \highlight{partial} (8/10 agree; 2 flagged) \\
+    O4 — Assess role of thermal lens & \highlight{not met} (out of time) \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.18cm}
+  \textbf{\color{sustBlueDark}Future directions}
+  \begin{itemize}\setlength\itemsep{1pt}
+    \item Extend to $[$second material$]$ at $[$temperature range$]$ to
+          isolate $[$effect$]$.
+    \item Add BSE on top of GW to resolve $[$open question$]$.
+    \item Deploy $[$code$]$ to Zenodo (DOI linked in slide 9) so other
+          groups can reproduce.
+  \end{itemize}
+\end{frame}

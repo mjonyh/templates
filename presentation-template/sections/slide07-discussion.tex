@@ -1,0 +1,77 @@
+%% sections/slide07-discussion.tex — SLIDE 7 — Discussion & limitations
+%% =============================================================================
+%% CONTENT BLUEPRINT — Discussion and Limitations
+%% =============================================================================
+%% Time budget: 60 seconds.
+%%
+%% WHAT TO PUT HERE:
+%%
+%%   LEFT half: Discussion (interpretation of the headline)
+%%     • Two bullets connecting slide 5's number with theory:
+%%         – "The measured value of $n_2 = 5.4 \pm 0.8 \times 10^{-19}$
+%%            m²/W agrees with Sheik-Bahae's Z-scan relation (Eq. (3)) to
+%%            within 12 %, supporting the assumption that ..."
+%%         – "At higher intensities (≥3 GW/cm²), the deviation from
+%%            lineart theory is consistent with two-photon absorption ..."
+%%     • Be explicit about mechanism. Vague words ("because of thermal
+%%       effects") do not help. Name the specific effect.
+%%
+%%   RIGHT half: Limitations (itemised, candid)
+%%     • Maximum 4 limitations. Bullets, not prose.
+%%     • Each bullet identifies:
+%%         – What is limited (quantity / regime),
+%%         – The magnitude of the limitation,
+%%         – What it does NOT affect (proves the work still stands).
+%%     • End the list with "None of these limitations affect the conclusion"
+%%       if true. The examiner will appreciate the calm verdict.
+%%
+%% STYLE:
+%%   • No new data on this slide. If you find yourself wanting to add a
+%%     number, return to slide 5 or 6.
+%%   • Limitations must be specific. "Sample purity" is vague; "Sample
+%%     purity 99.9 %, supplier-stated, not independently verified" is
+%%     specific.
+%% =============================================================================
+
+\begin{frame}{Discussion \& Limitations}
+  \begin{columns}[T, totalwidth=\textwidth]
+    \begin{column}{0.55\textwidth}
+      \textbf{\color{sustBlueDark}Interpretation}\\[2pt]
+      \begin{itemize}\setlength\itemsep{3pt}
+        \item \textbf{The agreement is / is not consistent with [theory from
+              slide 4]}. Specifically: \highlight{[One equation number or
+              reference from slide 4]} predicts \highlight{[value]}, our
+              measurement is \highlight{[value]}; $\Rightarrow$
+              \highlight{[discrepancy percent]} discrepancy, explained by
+              \highlight{[single most plausible mechanism]}.
+        \item \textbf{The deviation at [extreme parameter] is consistent with}
+              \highlight{[known second-order effect such as 2PA / thermal lens
+              / exchange-correlation error / k-mesh sampling]}. The
+              expected magnitude of this effect is \highlight{[X]}\,$\%$
+              — matching our observation.
+      \end{itemize}
+      \vspace{4pt}
+      \timenote{Cite slide 4 by equation number if you can; the examiner will
+      cross-reference during Q\&A.}
+    \end{column}
+
+    \begin{column}{0.43\textwidth}
+      \textbf{\color{sustBlueDark}Limitations}
+      \begin{itemize}\setlength\itemsep{3pt}
+        \item \textbf{[Limitation 1].} \itshape Specific magnitude. Does not
+              affect Conclusion-1 (slide 8).
+        \item \textbf{[Limitation 2].} \itshape Specific magnitude. Does not
+              affect Conclusion-2.
+        \item \textbf{[Limitation 3, optional].} \itshape Specific magnitude.
+        \item \textbf{None of the above undermine headline result.}
+      \end{itemize}
+
+      \vspace{6pt}
+      \begin{beamercolorbox}[sep=4pt]{block body example}
+        \scriptsize\color{sustBlueDark}\itshape ``The principal uncertainty on
+        the headline value of slide 5 is \highlight{X}\,\%, dominated by
+        \highlight{[specific source named]}.''
+      \end{beamercolorbox}
+    \end{column}
+  \end{columns}
+\end{frame}

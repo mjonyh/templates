@@ -1,0 +1,73 @@
+%% preamble/packages.tex — paper-presentation document-level packages.
+%% The custom SUST theme lives in preamble/sustbeamer.sty and is loaded
+%% from main.tex BEFORE this file (it must precede graphicx usage that
+%% references its color definitions).
+
+% --- Graphics & figures ---
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+% --- Math, units ---
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\sisetup{scientific-notation=false, round-mode=places, round-precision=3}
+\DeclareSIUnit\angstrom{\text{\AA}}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% --- Code listings (lighter than the thesis templates; presentations need
+%     to stay glance-friendly) ---
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{sustBlue}\bfseries,
+  commentstyle=\color{sustGray}\itshape,
+  stringstyle=\color{sustAccent},
+  backgroundcolor=\color{sustSoft},
+  frame=leftline, framerule=1.5pt, rulecolor=\color{sustBlue},
+  xleftmargin=8pt, framexleftmargin=5pt,
+  breaklines=true, columns=flexible
+}
+
+% --- TikZ for inline schematics & flow diagrams ---
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, positioning, calc, shapes.geometric, fit, backgrounds}
+
+% --- Hyperlinks & PDF metadata ---
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sustBlue, citecolor=sustGray, urlcolor=sustBlueLight,
+  pdftitle={Title of Your Presentation},
+  pdfauthor={Author Name},
+  pdfsubject={B.Sc. / M.S. Project Defense}
+}
+
+% --- Bibliography helper (we use natbib semantics for \cite / \citep)
+\usepackage[numbers,sort&compress]{natbib}
+
+% --- Custom presentation helpers ---
+% \highlight<...>{...}  — call-out box for one phrase (no overlay support)
+\newcommand{\highlight}[1]{\colorbox{sustSoft}{\textbf{#1}}}
+
+% \timenote{...} — tiny gray marginalia reminding the presenter of pacing
+\newcommand{\timenote}[1]{{\color{sustGray}\scriptsize\textit{\#1}}\par}
+
+% \resultbox{title}{contents} — full-bleed blue-accented result callout
+\newcommand{\resultbox}[2]{%
+  \begin{beamercolorbox}[wd=.96\paperwidth, sep=8pt]{block body example}
+    {\bfseries\color{sustBlueDark}#1}\par
+    \medskip
+    #2
+  \end{beamercolorbox}
+}
+
+% \keypoint — an animated incremental bullet sweep (used sparingly)
+% Available if the presenter wants to layer disclosure of multiple bullets.
+\setbeamercovered{transparent=20}

@@ -1,0 +1,46 @@
+%% sections/slide11-thanks.tex — SLIDE 11 — Thank you / Q&A
+%% =============================================================================
+%% CONTENT BLUEPRINT — Closing slide (Thank you)
+%% =============================================================================
+%% Time budget: 15 seconds of "thank you + transition to Q\&A".
+%% The slide is mostly a hold screen during Q\&A.
+%%
+%% WHAT TO SHOW:
+%%
+%%   • One large "Thank you" headline.
+%%   • Beneath it:
+%%     – Optional: one sentence inviting questions, in the same style as
+%%       the rest of the deck.
+%%     – Your name + a contact email (so examiners or audience members
+%%       can ask follow-up questions later).
+%%     – A small logo / SUST master mark if you want a visual anchor.
+%%
+%% WHY THIS WORKS:
+%%   • Avoids the embarrassing silence after "thank you".
+%%   • The slide stays on screen during Q\&A — keeps the projector alive
+%%     without switching windows.
+%%   • Includes an email so the question can be asked politely during the
+%%     discussion rather than cut off.
+%%
+%% OPTIONAL ALTERNATIVE: Per defence room preference, this slide may be
+%% replaced by a final "Questions?" slide. Edit the headline text to match.
+%% =============================================================================
+
+\begin{frame}[plain, noframenumbering]
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[sustBlueDark] (current page.south west) rectangle
+                        ([yshift=0.55cm]current page.south east);
+    \fill[sustAccent]  ([yshift=0.55cm]current page.south west) rectangle
+                       ([yshift=0.60cm]current page.south east);
+  \end{tikzpicture}
+
+  \begin{center}
+    \vspace*{1.1cm}
+    {\Huge\bfseries\color{sustBlueDark} Thank you.}\\[1.2cm]
+    {\Large\itshape Questions \& discussion are welcome.}\\[1.2cm]
+    \includegraphics[height=1.5cm]{sust_logo.png}\\[0.4cm]
+    {\color{sustBlueDark}\bfseries \defAuthor}\\[2pt]
+    {\small\color{sustGray}\texttt{[your.email@sust.edu]}}
+    \vspace{0.8cm}
+  \end{center}
+\end{frame}

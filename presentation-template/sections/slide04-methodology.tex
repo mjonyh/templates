@@ -1,0 +1,114 @@
+%% sections/slide04-methodology.tex — SLIDE 4 — Methodology
+%% =============================================================================
+%% CONTENT BLUEPRINT — Methodology
+%% =============================================================================
+%% Time budget: 45 seconds. The examiner needs to know HOW the work was done,
+%% not WHY (slide 3) or WHAT (slide 5).
+%%
+%% WHAT TO PUT ON THIS SLIDE:
+%%
+%%   ONE visual element (TikZ block diagram or apparatus schematic) +
+%%   a 2–3 line description of each numbered block. Two layouts to choose from.
+%%
+%%  ── Layout A: instrumentation chain (experimental projects) ──
+%%   Draw left-to-right:
+%%      SOURCE → SAMPLE → DETECTOR → ANALYSIS
+%%   Use TikZ rectangles + arrows. Mark each block with the model / spec.
+%%   Example: He-Ne Laser (632.8 nm) → Focusing Lens (f=100 mm) → Sample (SF59)
+%%            → Aperture → Detector (Si photodiode) → DAQ (PC).
+%%
+%%  ── Layout B: computational workflow (DFT / numerical projects) ──
+%%   Draw top-to-bottom:
+%%      Geometry → Relaxation → Property → Post-processing
+%%   Use TikZ flow chart. Label with software (VASP / Quantum ESPRESSO / Fortran).
+%%
+%%   Below the diagram, use a 3-column compact table:
+%%      | Instrument / Code       | Key setting             | Specification /
+%%      | He-Ne laser (Melles-Griot)| λ                      | 632.8 nm, 5 mW |
+%%      | Quantum ESPRESSO        | functional             | PBE + SOC      |
+%%
+%%   Always include convergence info if computational:
+%%      "E_cut = 60 Ry, k-mesh 12×12×1, force ≤ 1e-4 eV/Å, converged."
+%%
+%% DO NOT PUT:
+%%   • Long equations on this slide. Save §2.x derivations for the thesis.
+%%   • Generic methodology text like "DFT was used to compute..." — that
+%%     is meaningless to a specialist.
+%%   • Multiple paragraphs of prose. If you find yourself writing sentences,
+%%     convert them to labels on the diagram.
+%%
+%% SCHEMATIC STYLE:
+%%   • Match the package's TikZ settings (sustBlueDark blocks, white text,
+%%     -Latex arrows, 1.5pt borders). Use the example circuitikz / TikZ
+%%     blocks from your BSc/M.S. chapter N citations as starting points.
+%%   • Maximum 6 blocks. Beyond that the slide becomes unreadable from the
+%%     back row of the defense room.
+%% =============================================================================
+
+\begin{frame}{Methodology —~\, schematic}
+  \begin{columns}[T, totalwidth=\textwidth]
+    \begin{column}{0.62\textwidth}
+      \centering
+      \vspace{-6pt}
+      \begin{tikzpicture}[
+        node distance=0.55cm,
+        blknode/.style={draw=sustBlueDark, rounded corners=2pt, fill=sustBlue,
+                        text=white, minimum width=2.0cm, minimum height=0.65cm,
+                        align=center, font=\small\bfseries},
+        arrow/.style={-Latex, thick, color=sustBlueDark}
+      ]
+        % Pick ONE of the following three layouts and edit to your project.
+        % =============================================================
+        % LAYOUT A — instrumentation chain (uncomment to use)
+        %\node[blknode]   (src)   {Source \\ {\scriptsize(He-Ne 632.8 nm)}};
+        %\node[blknode, right=of src]      (lens)  {Lens \\ {\scriptsize(f = 100 mm)}};
+        %\node[blknode, right=of lens]     (samp)  {Sample \\ {\scriptsize(SF59)}};
+        %\node[blknode, right=of samp]     (det)   {Detector \\ {\scriptsize(Si)}};
+        %\node[blknode, below=of samp]     (daq)   {DAQ / PC};
+        %\draw[arrow] (src)  -- (lens);
+        %\draw[arrow] (lens) -- (samp);
+        %\draw[arrow] (samp) -- (det);
+        %\draw[arrow] (det)  |- (daq);
+        %\draw[arrow] (daq)  -| (samp);
+        %
+        % LAYOUT B — computational SCF loop (default here)
+        \node[blknode]   (geom)  {Geometry};
+        \node[blknode, below=of geom]  (relax){Relaxation};
+        \node[blknode, below=of relax] (prop) {Property calc};
+        \node[blknode, below=of prop]  (post) {Post-processing};
+        \draw[arrow] (geom)  -- (relax);
+        \draw[arrow] (relax) -- (prop);
+        \draw[arrow] (prop)  -- (post);
+        \node[font=\tiny, color=sustGray, right=0.2cm of prop.west] {QC (sourced)};
+        % =============================================================
+
+        % Wrap in a labelled containing rect
+        \begin{pgfonlayer}{background}
+          \node[draw=sustBlueLight, dashed, rounded corners=3pt,
+                fit=(geom) (post), inner sep=8pt, label={[font=\tiny\color{sustBlueDark}]above right:DFT workflow}] {};
+        \end{pgfonlayer}
+      \end{tikzpicture}
+      \timenote{Use TikZ schematic here.\ Add a second diagram if both
+      computation \& experiment are needed (else hijack the right column).}
+    \end{column}
+
+    \begin{column}{0.36\textwidth}
+      \vspace{-2pt}
+      \textbf{\color{sustBlueDark}Code stack / Instruments}\\[2pt]
+      \begin{tabular}{@{}p{0.95\linewidth}@{}}
+        \toprule
+        \textbf{Software / instrument} \\
+        \midrule
+        \scriptsize Quantum ESPRESSO v7.x \\
+        \scriptsize pseudopot: PBE PAW \\
+        \scriptsize $\Delta E_{\text{cut}}$ = 60\,Ry \\
+        \scriptsize k-mesh 12$\times$12$\times$1 \\
+        \scriptsize force tol. $1\times10^{-4}$\,eV/\AA \\
+        \scriptsize SciPy 1.11, Pymatgen 2024.x \\
+        \bottomrule
+      \end{tabular}
+      \vspace{4pt}
+      \timenote{Replace this table with your project parameters.}
+    \end{column}
+  \end{columns}
+\end{frame}

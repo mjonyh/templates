@@ -1,0 +1,82 @@
+%% sections/slide03-problem.tex — SLIDE 3 — Problem & objectives
+%% =============================================================================
+%% CONTENT BLUEPRINT — Problem statement + objectives
+%% =============================================================================
+%% Time budget: 45 seconds. This slide sets the stakes for the entire talk.
+%%
+%% WHAT TO PUT HERE:
+%%
+%%   Top half — Problem statement (exactly ONE paragraph, ≤ 2 sentences)
+%%   ----------------------------------------------------------------------
+%%   Format: "Despite [the gap shown in §1 of your thesis], [specific
+%%   question X] remains [unquantified / unverified / unexplored] under
+%%   [specific conditions Y]."
+%%
+%%   Examples (adjust to your project):
+%%     • "Despite extensive work on Z-scan of bulk glasses, the wavelength
+%%        dependence of n₂ in SF59 under nanosecond pulses has not been
+%%        measured at room temperature for the 500–700 nm region."
+%%     • "Although DFT-GGA sp-band calculations of TMD monolayers are
+%%        abundant, no published value of the biaxial-strain coefficient of
+%%        E_g is reproducible to within ±10 % for MoS₂ at 4 % strain."
+%%
+%%   DO NOT reproduce your §1.1 background here. Examiners have read your
+%%   thesis abstract. This slide is the verdict, not the context.
+%%
+%%   Bottom half — Objectives (3–5 bullets)
+%%   ---------------------------------------
+%%   Each bullet must be: (a) ONE action verb, (b) testable, (c) achievable.
+%%   Pattern: "To <verb> <object> <parameter range / sample set / method>."
+%%
+%%   Bad bullets:
+%%     ✗ "To study non-linear optics."
+%%     ✗ "To investigate materials."
+%%     ✗ "To do simulations."
+%%
+%%   Good bullets:
+%%     ✓ "To measure closed-aperture Z-scan traces of SF59 at λ = 632.8 nm
+%%        and extract n₂ to ±15 %."
+%%     ✓ "To compute the bandgap of monolayer MoS₂ under 0–8 % biaxial
+%%        strain in steps of 1 % using PBE+SOC in Quantum ESPRESSO."
+%%     ✓ "To compare computed absorption coefficients with published
+%%        experimental values at hν = 1.5–3.0 eV."
+%%
+%%   Highlight the bullet that maps to the headline result of slide 5 in
+%%   \highlight{...} (orange) so the examiner can trace Objective → Result.
+%%
+%% STYLE NOTES:
+%%   • At most 2 short sentences for the problem statement.
+%%   • 3–5 objectives, never more.
+%%   • Never list deliverables (data DOI, code repo) on this slide — save
+%%     those for slide 8 (summary).
+%% =============================================================================
+
+\begin{frame}{Statement of the Problem \& Objectives}
+  \begin{beamercolorbox}[wd=.96\paperwidth, sep=8pt]{block body example}
+    \textbf{\color{sustBlueDark}The problem.}%
+    \medskip
+    
+    Despite extensive prior work on \highlight{[your topic]} in
+    \highlight{[system class]}, no published value of \highlight{[target
+    quantity]} \highlight{under [your conditions]} is reproducible to
+    within $\pm$\,\highlight{[X]}\%.\hspace{1em}\emph{(Replace this paragraph
+    with one sentence that states the specific gap your work fills.)}
+  \end{beamercolorbox}
+
+  \vspace{0.2cm}
+  \textbf{\color{sustBlueDark}Objectives of this work.}
+  \begin{itemize}\setlength\itemsep{2pt}
+    \item \highlight{\textbf{O1}} \, To set up a [method] for measuring /
+          computing [target quantity] on [system] at [conditions].
+    \item \textbf{O2} \, To extract [intermediate observable] versus
+          [parameter] at [range with N points].
+    \item \textbf{O3} \, To compare measured / computed values against
+          [X] published references covering [conditions].
+    \item \textbf{O4} \, (Optional) To assess the role of [effect /
+          approximation / correction].
+  \end{itemize}
+
+  \vspace{0.1cm}
+  \timenote{Hit O1 motto in 5--7 s. Examiner will not remember every
+  bullet; they need to remember the headline.}
+\end{frame}

@@ -1,0 +1,83 @@
+%% presentation-template/main.tex
+%% Master file for a 7-minute SUST Physics project / thesis defense.
+%% Custom theme: preamble/sustbeamer.sty (loaded first so colors/fonts apply).
+
+\documentclass[10pt, aspectratio=43]{beamer}
+\usetheme{sustbeamer}  % custom SUST paper-style theme (preamble/beamerthemesustbeamer.sty)
+
+% Note: \input is used (not \usepackage) so the file is treated as a body
+% snippet, not a .sty — content inside preamble/packages.tex is body-level.
+\input{preamble/packages}
+
+% --- Macro-defined metadata (SINGLE source of truth) ---
+% Edit these and ONLY these. Every slide references these via \def* names.
+\def\defTitle{Your Thesis or Project Title: Modern, Concise, Quantitative}
+\def\defAuthor{Student Name}
+\def\defRoll{Reg. No. 00000000}
+\def\defSession{2024--25}
+\def\defSupervisor{Prof.\ Dr.\ Supervisor Name}
+\def\defSupervisorDesig{Professor, Department of Physics, SUST}
+\def\defCoSupervisor{}                       % leave empty to suppress
+\def\defCoSupervisorDesig{}
+\def\defDate{\today}
+\def\defenseLabel{B.Sc.\ Project Defense}    % or ``M.S.\ Thesis Defense''
+\def\talkDuration{7-minute}                 % displayed on outline slide
+
+\begin{document}
+
+% ============================================================================
+% Slide 1 — Title page
+% ============================================================================
+\input{frontmatter/titlepage}
+
+% ============================================================================
+% Slide 2 — Outline & 7-minute pacing roadmap
+% ============================================================================
+\input{frontmatter/outline}
+
+% ============================================================================
+% Slide 3 — Statement of the problem + objectives
+% ============================================================================
+\input{sections/slide03-problem}
+
+% ============================================================================
+% Slide 4 — Methodology
+% ============================================================================
+\input{sections/slide04-methodology}
+
+% ============================================================================
+% Slide 5 — Headline (most important) results
+% ============================================================================
+\input{sections/slide05-headline-results}
+
+% ============================================================================
+% Slide 6 — All other results (compact figure grid)
+% ============================================================================
+\input{sections/slide06-other-results}
+
+% ============================================================================
+% Slide 7 — Discussion & limitations
+% ============================================================================
+\input{sections/slide07-discussion}
+
+% ============================================================================
+% Slide 8 — Summary & future work
+% ============================================================================
+\input{sections/slide08-summary}
+
+% ============================================================================
+% Slide 9 — References (compact)
+% ============================================================================
+\input{sections/slide09-references}
+
+% ============================================================================
+% Slide 10 — Acknowledgements
+% ============================================================================
+\input{sections/slide10-acknowledgements}
+
+% ============================================================================
+% Slide 11 — Thank you / questions
+% ============================================================================
+\input{sections/slide11-thanks}
+
+\end{document}

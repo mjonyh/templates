@@ -1,0 +1,74 @@
+%% sections/slide09-references.tex — SLIDE 9 — References (compact)
+%% =============================================================================
+%% CONTENT BLUEPRINT — References
+%% =============================================================================
+%% Time budget: read-only — do NOT narrate every entry. 30 seconds.
+%% The slide just needs to be ON the screen during the closing remarks so
+%% that the examiner sees "yes, real citations, not decorative".
+%%
+%% SELECTION:
+%%   • List 4–7 carefully chosen references, NOT the full bibliography.
+%%     Each cited work on slides 3–8 should be reflected here.
+%%   • Order by relevance, not alphabetical.
+%%
+%% FORMATTING:
+%%   • Compact two-column \footnotesize text — fast to scan.
+%%   • Each entry: author, title, journal/year.
+%%   • Use \cite or similar with natbib so that future authors can swap to
+%%     numeric/author-year easily. The .bib file lives in references/.
+%%
+%% DO NOT:
+%%   • Paste full URL — uses space, and the title page is the place for
+%%     meeting-list hyperlinks. Just author + venue + year.
+%%   • Add a DOI line for every entry — saves space; DOI optional.
+%%
+%% HOW IT WORKS:
+%%   • This file uses \begin{thebibliography} so the stand-alone LaTeX
+%%     build doesn't need bibtex (the template compiles without bibtex).
+%%     If you want biblatex-style auto-sorting, swap to:
+%%       \bibliographystyle{unsrtnat}
+%%       \bibliography{references/references}
+%%     and add a `bib` target to the Makefile.
+%% =============================================================================
+
+\begin{frame}[allowframebreaks]{References}
+  % Inline bibliographies so the template compiles standalone.
+  % Replace these with the cited works from your thesis.
+  \begin{thebibliography}{9}
+
+  \bibitem[Boyd (2008)]{boyd2008nonlinear}
+    R. W. Boyd,
+    \itshape Nonlinear Optics,
+    3rd ed., Academic Press, 2008.
+
+  \bibitem[Sheik-Bahae et~al.\ (1990)]{sheik1990zscan}
+    M. Sheik-Bahae, A. A. Said, T.-H. Wei, D. J. Hagan, E. W. Van Stryland,
+    ``Sensitive measurement of optical nonlinearities using a single beam,''
+    \itshape IEEE J. Quantum Electron.\ \textbf{26} (1990) 760.
+
+  \bibitem[Hohenberg and Kohn (1964)]{hohenberg1964}
+    P. Hohenberg, W. Kohn,
+    ``Inhomogeneous electron gas,''
+    \itshape Phys. Rev.\ \textbf{136} (1964) B864.
+
+  \bibitem[Kresse and Furthm\"uller (1996)]{kresse1996}
+    G. Kresse, J. Furthm\"uller,
+    ``Efficient iterative schemes for ab initio total-energy calculations
+    using a plane-wave basis set,''
+    \itshape Phys. Rev. B\ \textbf{54} (1996) 11169.
+
+  \bibitem[Novoselov et~al.\ (2005)]{novoselov2005}
+    K. S. Novoselov, A. K. Geim, S. V. Morozov, D. Jiang, M. I. Katsnelson,
+    I. V. Grigorieva, S. V. Dubonos, A. A. Firsov,
+    ``Two-dimensional gas of massless Dirac fermions in graphene,''
+    \itshape Nature\ \textbf{438} (2005) 197.
+
+  \bibitem[Author One et~al.\ (year)]{replaceme1}
+    Replace with a recent ($\le$5\,yr) reference from your methodology slide.
+
+  \bibitem[Author Two et~al.\ (year)]{replaceme2}
+    Replace with a recent ($\le$5\,yr) reference from your results / theory
+    slide.
+
+  \end{thebibliography}
+\end{frame}

@@ -1,0 +1,127 @@
+%% Paper-style beamer theme.
+%% Builds a clean modern look modeled on metropolis, but using packages that
+%% ship with the default TeX Live distribution (so the template compiles
+%% anywhere without needing tlmgr install).
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemesustbeamer}[2026/07/02 SUST presentation theme (paper-style)]
+
+% --- Base theme: Madrid provides navigation bar; we override colors and look.
+\mode<presentation>
+\usecolortheme{default}
+\useinnertheme{circles}
+\useoutertheme{infolines}
+
+% --- SUST brand palette ---
+% Deep authority blue + subdued accent + warm secondary.
+\definecolor{sustBlue}{HTML}{003F87}     % primary
+\definecolor{sustBlueDark}{HTML}{002B5C}
+\definecolor{sustBlueLight}{HTML}{5E84C4}
+\definecolor{sustAccent}{HTML}{C75B12}   % burnt-orange highlight
+\definecolor{sustSoft}{HTML}{E8EEF7}     % background tint
+\definecolor{sustGray}{HTML}{666666}     % subdued text
+
+% --- Color overrides for all structural elements ---
+\setbeamercolor{frametitle}{bg=sustBlue, fg=white}
+\setbeamercolor{frametitle right}{bg=sustBlueDark, fg=white}
+\setbeamercolor{frametitle left}{bg=sustBlue, fg=white}
+\setbeamercolor{title}{bg=sustBlue, fg=white}
+\setbeamercolor{subtitle}{fg=sustBlueDark}
+\setbeamercolor{author}{fg=sustBlueDark}
+\setbeamercolor{institute}{fg=sustGray}
+\setbeamercolor{date}{fg=sustGray}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{structure}{fg=sustBlue, bg=sustSoft}
+\setbeamercolor{itemize item}{fg=sustBlue}
+\setbeamercolor{itemize subitem}{fg=sustBlueLight}
+\setbeamercolor{footnote}{fg=sustGray}
+\setbeamercolor{footnote mark}{fg=sustAccent}
+\setbeamercolor{section in head/foot}{fg=white, bg=sustBlue}
+\setbeamercolor{subsection in head/foot}{fg=sustBlue, bg=sustSoft}
+\setbeamercolor{author in head/foot}{fg=sustGray}
+\setbeamercolor{title in head/foot}{fg=sustBlueDark}
+\setbeamercolor{note page}{bg=white, fg=black}
+\setbeamercolor{note title}{bg=sustBlue, fg=white}
+\setbeamercolor{bibliography entry author}{fg=sustBlueDark}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=sustGray}
+
+% --- Fonts: sans-serif everywhere (metropolis look) ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}      % Arial-style Helvetica (default LaTeX sans-serif)
+
+% Math font that pairs with a sans-serif text font.
+\usefonttheme{professionalfonts}                       % group with beamer, don't reset math
+\usepackage[osf,sc]{mathpazo}                            % math + math symbols only (text font stays helvet via \renewcommand{\familydefault}{\sfdefault})
+
+% --- Frame title typography ---
+\setbeamerfont{frametitle}{series=\bfseries, size=\large, shape=\upshape}
+\setbeamerfont{title}{series=\bfseries, size=\Huge, shape=\upshape}
+\setbeamerfont{subtitle}{series=\mdseries, size=\large}
+\setbeamerfont{author}{series=\bfseries, size=\normalsize}
+\setbeamerfont{institute}{series=\itshape, size=\small}
+\setbeamerfont{normal text}{size=\small}
+\setbeamerfont{itemize/enumerate body}{size=\small}
+
+% --- Frame title layout: left-aligned + thin accent rule ---
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=2.6ex, dp=1ex, leftskip=2ex]{frametitle}%
+    \insertframetitle%
+  \end{beamercolorbox}%
+  \vspace{-2ex}%
+  {\color{sustAccent}\rule{\paperwidth}{1pt}}%
+  \vspace{0.4ex}%
+}
+
+% --- Itemize: minimal round markers, no spirals ---
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textendash}
+
+% --- Block environments: softer boxes, accent on title ---
+\setbeamercolor{block title}{bg=sustBlue, fg=white}
+\setbeamercolor{block body}{bg=sustSoft, fg=black}
+\setbeamercolor{block title alerted}{bg=sustAccent, fg=white}
+\setbeamercolor{block body alerted}{bg=sustSoft, fg=black}
+\setbeamercolor{block title example}{bg=sustBlueLight, fg=white}
+\setbeamercolor{block body example}{bg=sustSoft, fg=black}
+
+\setbeamerfont{block title}{series=\bfseries, size=\small}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% --- TOC: column-friendly for compactness on roadmap slide ---
+\setbeamertemplate{section in toc}{\insertsectionnumber.\,\insertsection}
+\setbeamercolor{section number projected}{bg=sustBlue, fg=white}
+\setbeamertemplate{subsection in toc}[default]
+
+% --- Bibliography: compact, numbered (matches natbib elsewhere) ---
+\setbeamertemplate{bibliography item}[text]
+\setbeamerfont{bibliography item}{size=\scriptsize}
+\setbeamerfont{bibliography entry author}{size=\scriptsize, series=\bfseries}
+\setbeamerfont{bibliography entry title}{size=\scriptsize}
+\setbeamerfont{bibliography entry location}{size=\scriptsize}
+
+% --- Caption style: smooths figure and table labels ---
+\setbeamercolor{caption}{fg=sustBlueDark}
+\setbeamerfont{caption}{series=\itshape, size=\footnotesize}
+\setbeamertemplate{caption}[numbered]
+
+% --- No nav symbols clutter ---
+\setbeamertemplate{navigation symbols}{}
+
+% --- Section start slide: full-bleed tinted banner ---
+\AtBeginSection[]{
+  \begin{frame}
+    \begin{beamercolorbox}[wd=\paperwidth, ht=\paperheight, center]{section in head/foot}
+      \vspace{1.5cm}
+      {\color{white}\Huge\bfseries\insertsection}\\[6pt]
+      \color{sustSoft}\rule{4cm}{1pt}
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+% Use \apptocmd hook to safely add to beamer preamble without overriding.
+\mode<all>
+
+\endinput

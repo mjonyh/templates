@@ -1,0 +1,110 @@
+%% sections/slide05-headline-results.tex — SLIDE 5 — Headline results
+%% =============================================================================
+%% CONTENT BLUEPRINT — Headline (single most-important) result
+%% =============================================================================
+%% Time budget: 90 seconds — the largest single block in the talk.
+%% This slide carries the verdict on Objective O1 (highlighted on slide 3).
+%%
+%% WHAT TO PUT ON THIS SLIDE:
+%%
+%%   ONE high-quality plot, large filling roughly 70 % of the slide area.
+%%   Around it, a minimal annotation layer:
+%%
+%%     • Title strip at top: "Result 1 — [what was determined, with number]."
+%%       Examples: "We measured n₂ of SF59 = 5.4×10⁻¹⁹ m²/W at 632.8 nm."
+%%                 "We computed E_g(MoS₂) = 1.82 eV at 0 % strain (lit. 1.80)."
+%%
+%%     • Above the plot: a single sentence stating the headline number with
+%%       units and uncertainty. The number must be the FIRST thing the
+%%       examiner reads.
+%%
+%%     • Below the plot: 2–3 bullets explaining what they should read off
+%%       the plot. ANNOTATE the key point on the figure using TikZ
+%%       (\node, \draw arrow into a peak/valley) rather than relying on
+%%       prose alone.
+%%
+%%     • At the very bottom: an orange-accented "Result" bar with a one-line
+%%       summary. Use \resultbox{...}{...} from packages.tex.
+%%
+%% DO NOT PUT:
+%%   • Two figures. If you have two equally-strong results, put them on
+%%     separate slides: split slide 5's content into 5a and 5b — but be
+%%     honest about the trade-off (less time per slide).
+%%   • A long caption. Recreate the reading hierarchy: title $\to$ number
+%%     $\to$ plot $\to$ explanation.
+%%   • Error bars everywhere — pick the one most important source of
+%%     uncertainty and annotate it on the figure.
+%%
+%% FIGURE SOURCING:
+%%   • Pull from figures/headline-result.pdf (or .png) — a vector PDF is
+%%     preferable so text remains crisp at projector resolution.
+%%   • If you generated the figure in pgfplots directly in your thesis,
+%%     you can lift the source — but simplify: drop minor-grid styling,
+%%     drop per-point markers unless you have <20 points, axis ranges tight
+%%     to the data.
+%%
+%% USE THE ANNOTATED-FIGURE PATTERN BELOW AS A STARTING POINT.
+%% =============================================================================
+
+\begin{frame}{Headline Result~\textemdash~[the single most important finding]}
+  \begin{resultbox}{Result 1.%
+    \timenote{Phrase as a sentence ending in a number with units.}}{%
+    \itshape ``We measured / computed \highlight{[target]}\,=\,
+    \highlight{[value]} $\pm$\,\highlight{[uncertainty]}\,[\si{unit}] under
+    [conditions], comparing to literature value
+    \highlight{[lit.value]} \highlight{[ref]}.''}
+  \end{resultbox}
+
+  \vspace{0.15cm}
+  \begin{columns}[T, totalwidth=\textwidth]
+    \begin{column}{0.58\textwidth}
+      \centering
+      \vspace{-2pt}
+      % --- Example headline plot (REPLACE with your own figure) ---
+      \begin{tikzpicture}
+        \begin{axis}[
+            width=\textwidth, height=5.6cm,
+            xlabel={Parameter $x$ (units)},
+            ylabel={Observable $Y$ (units)},
+            xmin=0, xmax=10, ymin=0, ymax=2.5,
+            grid=both,
+            grid style={line width=.1pt, color=gray!10},
+            major grid style={line width=.2pt, color=gray!25},
+            legend pos=south east, legend cell align={left},
+            legend style={font=\scriptsize, draw=sustGray!40}
+          ]
+          % Simulated curve
+          \addplot[color=sustBlue, very thick, domain=0:10, samples=80]
+              {1 + 0.6*sin(deg(x))};
+          \addlegendentry{This work (simulation)}
+
+          % Mock data points
+          \addplot[only marks, mark=*, color=sustAccent, mark size=1.8pt]
+              coordinates {(1.0, 1.55) (2.0, 1.78) (3.0, 1.62)
+                          (4.0, 1.10) (5.0, 0.95) (6.0, 1.05)
+                          (7.0, 1.42) (8.0, 1.71)};
+          \addlegendentry{Experimental}
+
+          % Annotation — head of the examiner
+          \node[circle, fill=sustAccent, inner sep=1.5pt, label=above:
+                {\scriptsize\bfseries\color{sustAccent}peak here}] at (axis cs:2, 1.78) {};
+          \draw[sustAccent, -Latex, thick] (axis cs:2,1.78) -- (axis cs:6.6, 2.2);
+        \end{axis}
+      \end{tikzpicture}
+    \end{column}
+
+    \begin{column}{0.40\textwidth}
+      \vspace{-4pt}
+      \textbf{\color{sustBlueDark}Read this off the plot}
+      \begin{itemize}\setlength\itemsep{2pt}
+        \item Trend is monotone / peaked / oscillatory --- say which.
+        \item Quantitative value at annotated marked feature.
+        \item Comparison vs.\ literature.
+        \item State ONE source of uncertainty.
+      \end{itemize}
+      \vspace{0.1cm}
+      \timenote{Remember: this slide decides whether the examiner is sold.
+      Answer questions explicitly: yes / no / part; with what percentage.}
+    \end{column}
+  \end{columns}
+\end{frame}
