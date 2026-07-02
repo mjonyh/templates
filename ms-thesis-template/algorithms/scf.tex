@@ -1,0 +1,42 @@
+%% Algorithm Example: algorithms/scf.tex
+%
+% This file is an OPTIONAL example showing how to drop a standalone algorithm
+% float into the M.S. thesis. It demonstrates:
+%   1) An algorithm block placed in its own file (modular authoring).
+%   2) Use of the algorithm2e style declared in preamble/packages.tex.
+%   3) A self-contained loop ready for re-use in Chapter 3.
+%
+% To enable this example:
+%   - Uncomment the \input{algorithms/scf} line in main.tex (placed after the
+%     last appendix).
+%   - The algorithm will appear in \listofalgorithms automatically.
+%
+% Recommendations for your own algorithms:
+%   - One algorithm per file (matches the multi-file ethos of this template).
+%   - Label as alg:topic (e.g. alg:scf, alg:cg, alg:relaxation).
+%   - Keep \KwIn and \KwOut accurate; algorithm2e uses them in the header.
+%   - Use \tcp{...} for inline comments inside the body.
+%   - When sharing code with Chapter 3 listings, list the actual source in a
+%     \begin{lstlisting} inside Chapter 2 §2.5 — use this file for the
+%     human-readable pseudocode only.
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwIn{Initial trial electron density $\rho_0(\mathbf{r})$; mixing parameter
+$\beta \in [0,1]$; convergence threshold $\eta$; maximum iterations $N_{\max}$}
+\KwOut{Converged ground-state density $\rho(\mathbf{r})$ and total energy $E_{\text{tot}}$}
+
+$\rho \leftarrow \rho_0$\;
+$k \leftarrow 0$\;
+\Repeat{convergence or $k = N_{\max}$}{
+  Construct effective potential $V_{\text{eff}}(\mathbf{r})$ from Eq.~(N.M.2)\;
+  Solve Kohn-Sham equations for $\{\psi_i\}$\;
+  Compute new density $\rho_{\text{new}}(\mathbf{r}) \leftarrow
+      \sum_i f_i \, |\psi_i(\mathbf{r})|^2$\;
+  Mix densities: $\rho \leftarrow \rho + \beta (\rho_{\text{new}} - \rho)$\;
+  Compute $E_{\text{tot}}$\;
+  $k \leftarrow k + 1$\;
+}
+\caption{Self-consistent field (SCF) iteration for Kohn-Sham DFT.}
+\label{alg:scf}
+\end{algorithm}
